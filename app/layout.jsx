@@ -2,15 +2,15 @@
 const RootLayout = ({ children }) => {
 
 	// RENDER
-  return (
-    <html lang="de">
-      <body>
+	return (
+		<html lang="de">
+			<body>
 				{children}
 			</body>
-    </html>
-  );
+		</html>
+	);
 
 };
 
-// EXPORTS 
+// EXPORTS
 export default RootLayout;
