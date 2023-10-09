@@ -1,0 +1,62 @@
+.impressions-navigation {
+	grid-area: navigation;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	&__item, .item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+
+		&__icon {
+			position: relative;
+			transition: all 0.2s ease;
+			left: 0;
+			right: 0;
+			height: 12px;
+		}
+
+		&__label {
+			margin-bottom: 4px;
+		}
+
+		&--previous {
+
+			& .item__icon {
+				margin-right: 16px;
+				margin-left: 4px;
+			}
+
+			&:hover {
+					
+				& .item__icon {
+					left: -4px;
+				}
+
+			}
+
+		}
+		
+		&--next {
+
+			& .item__icon {
+				margin-right: 4px;
+				margin-left: 16px;
+			}
+
+			&:hover {
+					
+				& .item__icon {
+					left: 4px;
+				}
+
+			}
+
+		}
+
+			
+	}
+
+}

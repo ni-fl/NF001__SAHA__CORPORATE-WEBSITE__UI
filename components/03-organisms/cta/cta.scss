@@ -1,0 +1,118 @@
+.cta {
+	border-top: 1px solid $grey-40;
+	margin-bottom: 0 !important;
+
+	&__inner {
+		padding: 56px 0 !important;
+	}
+
+	&__link, .link {
+		display: inline-block;
+		
+		&__text {
+			display: inline-block;
+		}
+		
+		&__icon {
+			width: 56px;
+			margin-left: 32px;
+			transition: 0.2s ease;
+			margin-bottom: 8px;
+		}
+
+		&:hover {
+
+			& .link__icon {
+				margin-left: 48px;
+			}
+
+		}
+
+	}
+
+	@media (max-width: 1050px) {
+
+		&__link, .link {
+
+			&__icon {
+				width: 32px;
+				margin-left: 24px;
+				margin-bottom: 4px;
+			}
+
+			&:hover {
+
+				& .link__icon {
+					margin-left: 32px
+				}
+
+			}
+
+		}
+
+	}
+
+	@media (max-width: 850px) {
+
+		&__link, .link {
+		
+			&__icon {
+				width: 24px;
+				margin-left: 16px;
+				margin-bottom: -4px;
+			}
+
+			&:hover {
+
+				& .link__icon {
+					margin-left: 24px;
+				}
+			}
+
+		}
+
+	}
+
+	@media (max-width: 500px) {
+
+		&__inner {
+			padding: 32px 0 !important;
+		}
+		
+		&__link, .link {
+			align-items: flex-end;
+
+			&__text {
+				max-width: 186px;
+			}
+
+			&__icon {
+				margin-bottom: 0.5em;
+				margin-left: 8px;
+			}
+
+			&:hover {
+
+				& .link__icon {
+					margin-left: 16px;
+				}
+
+			}
+
+		}
+
+	}
+
+	@media (max-width: 300px) {
+
+		&__link, .link {
+		
+			&__icon {
+				display: none;
+			}
+
+		}
+
+	}
+
+}

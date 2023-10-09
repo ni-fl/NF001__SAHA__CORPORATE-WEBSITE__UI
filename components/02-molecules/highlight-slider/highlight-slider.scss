@@ -1,0 +1,105 @@
+.highlight-slider {
+
+	&__preview, .preview {
+		position: relative;
+		height: 1120px;
+		max-height: calc(100vh - 240px);
+		margin-bottom: 32px;
+
+		&__image, .image {
+			position: absolute; 
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			opacity: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+
+			&__source {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			
+		}
+
+	}
+
+	&__projects, .projects {
+		display: flex;
+		flex-direction: row;
+
+		&__box, .box {
+			width: 100%;
+
+			&:last-child {
+
+				.progress,
+				.heading {
+					margin-right: 0px;
+				}
+
+			}
+
+			&__progress, .progress {
+				height: 2px;
+				margin-bottom: 16px;
+				border-radius: 2px;
+				position: relative;
+				margin-right: 12px;
+
+                
+				&__background, 
+				&__status {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					height: 100%;
+				}
+
+				&__background {
+					right: 0;
+					background-color: lightgrey;
+				}
+
+				&__status {
+					right: 100%;
+					background-color: black;
+				}
+
+			}
+
+			&__label {
+				margin-bottom: 8px;
+				color: $black-100;
+				opacity: 0.2;
+				margin-right: 32px;
+			}
+
+			&__title {
+				color: $black-100;
+				opacity: 0.2;
+				margin-right: 32px;
+			}
+        
+		}
+
+	}
+
+	@media (max-width: 1600px) {
+
+		&__preview, .preview {
+			height: 800px;
+		}
+		
+	}
+
+	@media (max-width: 850px) {
+		display: none;
+	}
+
+}

@@ -1,0 +1,34 @@
+.legal-informations {
+	margin-top: 64px !important;
+
+	&__heading {
+		margin-bottom: 64px;
+	}
+
+	&__paragraphs, .paragraphs {
+		max-width: 800px;
+
+		&__item, .item {
+			margin-bottom: 32px;
+
+			&__heading {
+				margin-bottom: 8px;
+			}
+
+			&__text {
+
+				p {
+					margin-bottom: 16px;
+				}
+
+				a {
+					text-decoration: underline !important;
+					text-underline-offset: 3px;
+				}
+			}
+
+		}
+    
+	}
+
+}

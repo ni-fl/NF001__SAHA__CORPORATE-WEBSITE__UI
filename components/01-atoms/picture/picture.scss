@@ -1,0 +1,16 @@
+.picture {
+
+	&__source {
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: cover;
+	}
+
+	&__alternative {
+		background-color: $grey-20;
+		width: 100%;
+		height: 100%;
+	}
+    
+}

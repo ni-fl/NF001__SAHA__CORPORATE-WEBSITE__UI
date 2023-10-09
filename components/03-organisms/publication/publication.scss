@@ -1,0 +1,28 @@
+.publication {
+	margin-top: 64px !important;
+
+	&__heading {
+		margin-bottom: 64px;
+	}
+
+	&__contributors, .contributors {
+
+		&__item, .item {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: 32px;
+            
+			&__heading {
+				margin-bottom: 8px;
+			}
+
+			&__link {
+				display: block;
+			}
+
+		}
+
+	}
+
+}

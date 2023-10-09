@@ -1,0 +1,13 @@
+.section {
+	margin: 0 auto;
+	padding: 0 32px;
+	width: 100%;
+	margin-bottom: 80px;
+    
+	&__inner {
+		width: 100%;
+		max-width: $max-width;
+		margin: 0 auto;
+	}
+
+}

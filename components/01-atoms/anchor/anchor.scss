@@ -1,0 +1,39 @@
+.anchor {
+	color: $black-100;
+	padding-bottom: 2px;
+
+	&__content {
+		margin-left: 32px;
+		color: $black-100;
+	}
+
+	&::before, 
+	&::after {
+		position: absolute;
+		content: "";
+		border-radius: 2px;
+		left: -0;
+		top: 50%;
+		display: block;
+		width: 24px;
+		height: 1px;
+		background-color: $black-100;
+		transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);;
+	}
+
+	&::before {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+    
+	&::after {
+		transform-origin: right;
+		background-color: $grey-60;
+	}
+
+	&:hover::after {
+		transform: scaleX(0);
+		transition-delay: 0s;
+	}
+
+}
