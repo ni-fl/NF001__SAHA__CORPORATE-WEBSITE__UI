@@ -1,0 +1,22 @@
+@font-face {
+	font-family: Athena-Light;
+	src:
+		local("fonts/athena-light"), url("/fonts/athena-light/athena-light.ttf") format("ttf"),
+		local("fonts/athena-light"), url("/fonts/athena-light/athena-light.woff2") format("woff2"),
+		local("fonts/athena-light"), url("/fonts/athena-light/athena-light.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: Usual-Light;
+	src:
+		local("fonts/usual-light"), url("/fonts/usual-light/usual-light.ttf") format("ttf"),
+		local("fonts/usual-light"), url("/fonts/usual-light/usual-light.woff2") format("woff2"),
+		local("fonts/usual-light"), url("/fonts/usual-light/usual-light.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+	font-display: block;
+}
+
