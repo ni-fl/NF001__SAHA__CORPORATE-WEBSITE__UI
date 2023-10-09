@@ -1,0 +1,9 @@
+Web Developer:
+- Name: Jérôme Haas
+- Website: http://www.jeromehaas.dev
+- GitHub: jeromehaas
+
+Designer:
+- Name: Samira Haas
+- Website: http://www.samirahaas.ch
+- Instagram: samirahaas_

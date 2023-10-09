@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /imprint
+Disallow: /data-privacy
+Disallow: /login
+Disallow: /404
