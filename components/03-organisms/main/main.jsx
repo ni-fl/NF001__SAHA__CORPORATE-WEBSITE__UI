@@ -1,5 +1,7 @@
+// COMPONENT
 const Main = ({ content }) => {
 
+	// RENDER
 	return (
 		<main className="main">
 			{ content }
@@ -8,4 +10,5 @@ const Main = ({ content }) => {
 
 };
 
+// EXPORTS
 export default Main;

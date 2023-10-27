@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+// COMPONENT
+const Component = ({ className = '', isOpen = false, onClick = null }) => {
 
-const Hamburger = ({ className, isOpen, onClick }) => {
-
+	// RENDER
 	return (
 		<button className={ ` ${ className } hamburger hamburger--squeeze ${ isOpen ? 'hamburger--is-open' : '' } ` } type="button" aria-label="Hamburger" onClick={ onClick }>
 			<span className="hamburger__box">
@@ -12,16 +12,5 @@ const Hamburger = ({ className, isOpen, onClick }) => {
 
 };
 
-Hamburger.propTypes = {
-	className: PropTypes.string,
-	isOpen: PropTypes.bool,
-	onClick: PropTypes.func,
-};
-
-Hamburger.defaultProps = {
-	className: '',
-	isOpen: false,
-	onClick: null,
-};
-
-export default Hamburger;
+// EXPORTS
+export default Component;

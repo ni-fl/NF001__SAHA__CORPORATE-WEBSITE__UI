@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import PictureCollection from 'components/02-molecules/picture-collection/picture-collection';
@@ -5,14 +8,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect, useMemo } from 'react';
 
-const Showcase = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const showcaseRef = useRef();
 	const showcaseTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -36,6 +42,7 @@ const Showcase = ({ data }) => {
 		});
 	});
 
+	// RENDER
 	return (
 		<Section className="showcase" ref={ showcaseRef }>
 			<Heading className="showcase__heading heading" level="h1">
@@ -47,4 +54,5 @@ const Showcase = ({ data }) => {
 	);
 };
 
-export default Showcase;
+// EXPORTS
+export default Component;

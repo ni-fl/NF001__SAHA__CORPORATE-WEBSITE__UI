@@ -11,27 +11,27 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samirahaas.ch/corporate</loc>
+    <loc>https://samirahaas.ch/showcase/corporate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samirahaas.ch/architecture</loc>
+    <loc>https://samirahaas.ch/showcase/architecture</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samirahaas.ch/storytelling</loc>
+    <loc>https://samirahaas.ch/showcase/storytelling</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samirahaas.ch/weddings</loc>
+    <loc>https://samirahaas.ch/showcase/weddings</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://samirahaas.ch/design</loc>
+    <loc>https://samirahaas.ch/showcase/design</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

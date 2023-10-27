@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
@@ -7,14 +10,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
 
+// COMPONENT
 const AboutMe = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
 
 	// CREATE REFS
 	const aboutMeRef = useRef();
 	const aboutMeTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -28,6 +34,7 @@ const AboutMe = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="about-me" ref={ aboutMeRef }>
 			<div className="about-me__content content">
@@ -41,4 +48,5 @@ const AboutMe = ({ data }) => {
 
 };
 
+// EXPORTS
 export default AboutMe;

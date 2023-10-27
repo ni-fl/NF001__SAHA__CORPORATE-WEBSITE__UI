@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
+// IMPORTS
 import { forwardRef } from 'react';
 
+// COMPONENT
 const Section = forwardRef(({ className, children }, ref) => {
 
+	// RENDER
 	return (
 		<section className={ `${ className } section` } id={ className } ref={ ref }>
 			<div className={ `${ className }__inner section__inner` }>
@@ -13,15 +15,5 @@ const Section = forwardRef(({ className, children }, ref) => {
 
 });
 
-Section.displayName = 'Section';
-
-Section.propTypes = {
-	className: PropTypes.string,
-	children: PropTypes.node.isRequired,
-};
-
-Section.defaultProps = {
-	className: '',
-};
-
+// EXPORTS
 export default Section;

@@ -1,11 +1,13 @@
+// IMPORTS
 import Hamburger from 'components/01-atoms/hamburger/hamburger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
-const Navigation = () => {
+// COMPONENT
+const Component = () => {
 
 	// SETUP STATE
 	const [isOpen, setIsOpen] = useState(false);
@@ -20,17 +22,18 @@ const Navigation = () => {
 	// OPEN MENU
 	const openMenu = () => {
 		menuTimelineRef.current.play();
+		setIsOpen(true);
 	};
 
 	// CLOSE MENU
 	const closeMenu = () => {
 		menuTimelineRef.current.reverse();
+		setIsOpen(false);
 	};
 
 	// TOGGLE MENU
 	const toggleMenu = () => {
 		isOpen ? closeMenu() : openMenu();
-		setIsOpen(!isOpen);
 	};
 
 	// HANDLE LINK KLICK
@@ -38,9 +41,10 @@ const Navigation = () => {
 		event.preventDefault();
 		const currentPath = router.pathname;
 		if (currentPath === targetPath) {
-			toggleMenu();
+			closeMenu();
 		} else {
 			router.push(targetPath);
+			closeMenu();
 		};
 	};
 
@@ -63,6 +67,7 @@ const Navigation = () => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<nav className="navigation" ref={ navigationRef }>
 			<div className="navigation__inner">
@@ -78,11 +83,11 @@ const Navigation = () => {
 				</div>
 				<div className="navigation__menu menu">
 					<div className="menu__main-links main-links">
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/corporate" onClick={ (event) => { return handleLinkClick(event, '/corporate'); } }>Corporate</Link>
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/storytelling" onClick={ (event) => { return handleLinkClick(event, '/storytelling'); } }>Storytelling</Link>
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/architecture" onClick={ (event) => { return handleLinkClick(event, '/architecture'); } }>Architektur</Link>
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/weddings" onClick={ (event) => { return handleLinkClick(event, '/weddings'); } }>Hochzeiten</Link>
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/design" onClick={ (event) => { return handleLinkClick(event, '/design'); } }>Gestaltung</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/corporate" onClick={ (event) => { return handleLinkClick(event, '/showcase/corporate'); } }>Corporate</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/storytelling" onClick={ (event) => { return handleLinkClick(event, '/showcase/storytelling'); } }>Storytelling</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/architecture" onClick={ (event) => { return handleLinkClick(event, '/showcase/architecture'); } }>Architektur</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/weddings" onClick={ (event) => { return handleLinkClick(event, '/showcase/weddings'); } }>Hochzeiten</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/design" onClick={ (event) => { return handleLinkClick(event, '/showcase/design'); } }>Gestaltung</Link>
 						<Link className="main-links__item heading--h1 animation--fade-in" href="/contact" onClick={ (event) => { return handleLinkClick(event, '/contact'); } }>Kontakt</Link>
 					</div>
 					<div className="menu__social-links social-links animation--fade-in">
@@ -95,4 +100,5 @@ const Navigation = () => {
 
 };
 
-export default Navigation;
+// EXPORTS
+export default Component;

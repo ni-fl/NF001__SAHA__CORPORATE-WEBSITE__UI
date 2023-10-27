@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Impressions from 'components/02-molecules/impressions/impressions';
@@ -6,20 +9,19 @@ import Markdown from 'components/01-atoms/markdown/markdown';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
-const Gallery = ({ data }) => {
-
-	// GET PATH ID
-	const router = useRouter();
-	const { id } = router.query;
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENTS
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const galleryRef = useRef(null);
 	const galleryTimelineRef = useRef(null);
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -32,10 +34,11 @@ const Gallery = ({ data }) => {
 			galleryTimelineRef.current.to('.gallery .gallery__navigation', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 2.5);
 		}, galleryRef);
 		return () => { context.revert(); };
-	}, [id]);
+	}, []);
 
+	// RENDER
 	return (
-		<Section className="gallery" ref={ galleryRef } key={ id }>
+		<Section className="gallery" ref={ galleryRef }>
 			<Heading className="gallery__heading animation--fade-in" level="h1" lookLike="h4">{ data.attributes.heading }</Heading>
 			{ data.attributes.description ? <Markdown className="gallery__description animation--fade-in">{ data.attributes.description }</Markdown> : null }
 			{ data.attributes.images ? <Impressions className="gallery__impressions animation--fade-in" items={ data.attributes.images } /> : null }
@@ -45,4 +48,5 @@ const Gallery = ({ data }) => {
 
 };
 
-export default Gallery;
+// EXPORTS
+export default Component;

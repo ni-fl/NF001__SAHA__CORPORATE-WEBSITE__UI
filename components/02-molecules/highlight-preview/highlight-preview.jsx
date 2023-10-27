@@ -1,11 +1,12 @@
+// IMPORTS
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Heading from 'components/01-atoms/heading/heading';
-import PropTypes from 'prop-types';
 import Picture from 'components/01-atoms/picture/picture';
 import Link from 'next/link';
 
-const HighlightPreview = ({ className, items }) => {
+// COMPONENT
+const Component = ({ className, items }) => {
 
 	// CREATE REFS
 	const timeline = useRef();
@@ -48,6 +49,7 @@ const HighlightPreview = ({ className, items }) => {
 		return () => { return context.revert(); };
 	}, [counter]);
 
+	// RENDER
 	return (
 		<div className={ `${ className } highlight-preview` } ref={ previewRef }>
 			<div className="highlight-preview__preview preview">
@@ -78,12 +80,5 @@ const HighlightPreview = ({ className, items }) => {
 
 };
 
-HighlightPreview.propTypes = {
-	className: PropTypes.string,
-};
-
-HighlightPreview.defaultProps = {
-	className: '',
-};
-
-export default HighlightPreview;
+// EXPORTS
+export default Component;

@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Link from 'next/link';
 import Text from 'components/01-atoms/text/text';
 import Image from 'next/image';
@@ -9,7 +12,9 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 const Footer = () => {
 
 	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// CREATE REFS
 	const footerRef = useRef();
@@ -34,6 +39,7 @@ const Footer = () => {
 		return new Date().getFullYear();
 	};
 
+	// RENDER
 	return (
 		<footer className="footer section" ref={ footerRef }>
 			<div className="footer__inner section__inner">
@@ -60,4 +66,5 @@ const Footer = () => {
 
 };
 
+// EXPORTS
 export default Footer;

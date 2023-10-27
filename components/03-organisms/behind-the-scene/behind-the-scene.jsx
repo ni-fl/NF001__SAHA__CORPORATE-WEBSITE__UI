@@ -1,24 +1,30 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Picture from 'components/01-atoms/picture/picture';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
 
-const BehindTheScenes = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
-	const behindTheScenesRef = useRef();
-	const behindTheScenesTimelineRef = useRef();
+	const behindTheSceneRef = useRef();
+	const behindTheSceneTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
 		const context = gsap.context(() => {
-			behindTheScenesTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: behindTheScenesRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px' } });
-			behindTheScenesTimelineRef.current.to('.behind-the-scenes .images__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25 }, 0.5);
-		}, behindTheScenesRef);
+			behindTheSceneTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: behindTheSceneRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px' } });
+			behindTheSceneTimelineRef.current.to('.behind-the-scene .images__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25 }, 0.5);
+		}, behindTheSceneRef);
 		return () => { return context.revert(); };
 	}, []);
 
@@ -30,9 +36,10 @@ const BehindTheScenes = ({ data }) => {
 		};
 	});
 
+	// RENDER
 	return (
-		<Section className="behind-the-scenes" ref={ behindTheScenesRef }>
-			<div className="behind-the-scenes__images images">
+		<Section className="behind-the-scene" ref={ behindTheSceneRef }>
+			<div className="behind-the-scene__images images">
 				{ items?.map((item) => {
 					return (
 						<Picture className="images__item animation--fade-in" src={ item.preview?.url } key={ item.id } alt="Image" width={ item.preview.width } height={ item.preview.height } />
@@ -44,4 +51,5 @@ const BehindTheScenes = ({ data }) => {
 
 };
 
-export default BehindTheScenes;
+// EXPORTS
+export default Component;

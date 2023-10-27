@@ -1,10 +1,15 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
 import Link from 'next/link';
 
-const Error = () => {
+// COMPONENT
+const Component = () => {
 
+	// RENDER
 	return (
 		<Section className="error">
 			<div className="error__content content">
@@ -19,4 +24,4 @@ const Error = () => {
 
 };
 
-export default Error;
+export default Component;

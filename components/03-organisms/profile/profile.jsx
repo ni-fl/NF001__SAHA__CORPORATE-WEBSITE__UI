@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Heading from 'components/01-atoms/heading/heading';
 import Section from 'components/04-layouts/section/section';
 import Text from 'components/01-atoms/text/text';
@@ -5,25 +8,29 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
 
-const Profile = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const profileRef = useRef();
 	const profileTimelineRef = useRef();
 
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
+
 	// ANIMATE ELEMENTS
 	useEffect(() => {
 		const context = gsap.context(() => {
-			profileTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: profileTimelineRef.current, start: 'top bottom-=80px', end: 'bottom top-=80px' } });
+			profileTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: profileRef.current, start: 'top bottom-=80px', end: 'bottom top-=80px' } });
 			profileTimelineRef.current.to('.profile .profile__education', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
 			profileTimelineRef.current.to('.profile .profile__contact', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.75);
 		}, profileRef);
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="profile" ref={ profileRef }>
 			<div className="profile__education education animation--fade-in">
@@ -50,10 +57,7 @@ const Profile = ({ data }) => {
 								<a className="address__link" href={ item.link } key={ item.id }>
 									<Text className="address__item text--medium">{ item.text }</Text>
 								</a>
-							) : (
-								<Text className="address__item text--medium" key={ item.id }>{ item.text }</Text>
-							)
-
+							) : <Text className="address__item text--medium" key={ item.id }>{ item.text }</Text>
 						);
 					})}
 				</div>
@@ -63,4 +67,5 @@ const Profile = ({ data }) => {
 
 };
 
-export default Profile;
+// EXPORTS
+export default Component;

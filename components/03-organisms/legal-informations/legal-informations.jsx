@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import ReactMarkdown from 'react-markdown';
@@ -5,14 +8,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
-const LegalInformations = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const legalInformationsRef = useRef();
 	const legalInformationsTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -24,6 +30,7 @@ const LegalInformations = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="legal-informations" ref={ legalInformationsRef }>
 			<Heading className="legal-informations__heading heading" level="h1">
@@ -45,4 +52,5 @@ const LegalInformations = ({ data }) => {
 
 };
 
-export default LegalInformations;
+// EXPORTS
+export default Component;

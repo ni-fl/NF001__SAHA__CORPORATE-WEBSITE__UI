@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
+// IMPORTS
 import Image from 'next/image';
 
-const Picture = ({ className, src, alt, quality, priority = true, width, height }) => {
+// COMPONENT
+const Component = ({ className, src, alt, quality, priority = true, width, height }) => {
 
+	// RENDER
 	return (
 		<div className={ `${ className } picture` }>
 			{ src ? (
@@ -15,12 +17,5 @@ const Picture = ({ className, src, alt, quality, priority = true, width, height 
 
 };
 
-Picture.propTypes = {
-	className: PropTypes.string,
-};
-
-Picture.defaultProps = {
-	className: '',
-};
-
-export default Picture;
+// EXPORTS
+export default Component;

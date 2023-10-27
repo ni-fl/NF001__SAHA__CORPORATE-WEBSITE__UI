@@ -1,11 +1,12 @@
+// IMPORTS
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Heading from 'components/01-atoms/heading/heading';
-import PropTypes from 'prop-types';
 import Picture from 'components/01-atoms/picture/picture';
 import Link from 'next/link';
 
-const HighlightSlider = ({ className, items }) => {
+// COMPONENT
+const Component = ({ className, items }) => {
 
 	// CREATE REFS
 	const timeline = useRef();
@@ -49,6 +50,7 @@ const HighlightSlider = ({ className, items }) => {
 		return () => { return context.revert(); };
 	}, [counter]);
 
+	// RENDER
 	return (
 		<div className={ `${ className } highlight-slider` } ref={ sliderRef }>
 			<div className="highlight-slider__preview preview">
@@ -79,12 +81,5 @@ const HighlightSlider = ({ className, items }) => {
 
 };
 
-HighlightSlider.propTypes = {
-	className: PropTypes.string,
-};
-
-HighlightSlider.defaultProps = {
-	className: '',
-};
-
-export default HighlightSlider;
+// EXPORTS
+export default Component;

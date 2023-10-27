@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
@@ -6,14 +9,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
-const Publication = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const publicationRef = useRef();
 	const publicationTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -25,6 +31,7 @@ const Publication = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="publication" ref={ publicationRef }>
 			<Heading className="publication__heading heading animation--fade-in" level="h1">
@@ -56,4 +63,5 @@ const Publication = ({ data }) => {
 
 };
 
-export default Publication;
+// EXPORTS
+export default Component;

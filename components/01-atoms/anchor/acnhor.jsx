@@ -1,8 +1,10 @@
+// IMPORTS
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
-const Anchor = ({ className, children, href, onClick }) => {
+// COMPONENT
+const Component = ({ className = '', children = null, href = '#', onClick = null }) => {
 
+	// RENDER
 	return (
 		<Link className={ ` ${ className } anchor` } href={ href } onClick={ onClick }>
 			<span className="anchor__content">
@@ -13,17 +15,5 @@ const Anchor = ({ className, children, href, onClick }) => {
 
 };
 
-Anchor.propTypes = {
-	className: PropTypes.string,
-	children: PropTypes.node.isRequired,
-	href: PropTypes.string,
-	onClick: PropTypes.func,
-};
-
-Anchor.defaultProps = {
-	className: '',
-	href: '#',
-	onClick: null,
-};
-
-export default Anchor;
+// EXPORTS
+export default Component;

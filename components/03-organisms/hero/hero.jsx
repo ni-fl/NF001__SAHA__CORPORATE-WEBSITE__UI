@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
 import Section from 'components/04-layouts/section/section';
@@ -5,7 +8,8 @@ import Scroller from 'components/01-atoms/scroller/scroller';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
-const Hero = ({ data }) => {
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const heroRef = useRef();
@@ -22,6 +26,7 @@ const Hero = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="hero" ref={ heroRef }>
 			<Heading className="hero__heading animation--fade-in">{ data.attributes.heading }</Heading>
@@ -32,4 +37,5 @@ const Hero = ({ data }) => {
 
 };
 
-export default Hero;
+// EXPORTS
+export default Component;

@@ -1,8 +1,12 @@
-import axios from 'axios';
-
+// FETCH HERO
 const fetchHero = async () => {
-	const response = await axios.get(`${ process.env.NEXT_PUBLIC_STRAPI_URI }/api/hero?populate=deep`);
-	return response;
+	const res = await fetch(`${ process.env.NEXT_PUBLIC_CMS_URI }/api/hero?populate=deep`, {
+		next: { revalidate: 300 },
+		method: 'GET',
+	});
+	const { data } = await res.json();
+	return data;
 };
 
+// EXPORTS
 export default fetchHero;

@@ -1,9 +1,11 @@
+// IMPORTS
 import Text from 'components/01-atoms/text/text';
 import Link from 'next/link';
 import { gsap } from 'gsap';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
-const ImpressionsNavigation = ({ className, next, previous }) => {
+// COMPONENT
+const Component = ({ className, next, previous }) => {
 
 	// SETUP ROUTER
 	const router = useRouter();
@@ -17,6 +19,7 @@ const ImpressionsNavigation = ({ className, next, previous }) => {
 		}, 0.3);
 	};
 
+	// RENDER
 	return (
 		<nav className={ `${ className } impressions-navigation` }>
 			<Link className="impressions-navigation__item item item--previous" href={ `/project/${ previous}` } onClick={ (event) => handleNavigation(event, `/project/${ previous }`) }>
@@ -32,4 +35,5 @@ const ImpressionsNavigation = ({ className, next, previous }) => {
 
 };
 
-export default ImpressionsNavigation;
+// EXPORTS
+export default Component;

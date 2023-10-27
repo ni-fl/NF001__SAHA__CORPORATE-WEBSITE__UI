@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Link from 'next/link';
@@ -5,14 +8,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
 
-const Cta = () => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = () => {
 
 	// CREATE REFS
 	const ctaRef = useRef();
 	const ctaTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -23,6 +29,7 @@ const Cta = () => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="cta" ref={ ctaRef }>
 			<Link className="cta__link link animation--fade-in" href="/contact">
@@ -34,4 +41,5 @@ const Cta = () => {
 
 };
 
-export default Cta;
+// COMPONENTS
+export default Component;

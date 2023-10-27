@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
@@ -6,14 +9,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
 
-const MyEthics = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const myEthicsRef = useRef();
 	const myEthicsTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -26,6 +32,7 @@ const MyEthics = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="my-ethics" ref={ myEthicsRef }>
 			<Picture className="my-ethics__image animation--fade-in" src={ data?.attributes.image.data?.attributes.url } alt="Leave" />
@@ -42,4 +49,5 @@ const MyEthics = ({ data }) => {
 
 };
 
-export default MyEthics;
+// EXPORTS
+export default Component;

@@ -1,7 +1,10 @@
+// IMPORTS
 import Picture from 'components/01-atoms/picture/picture';
 
-const Impressions = ({ className, items }) => {
+// COMPONENT
+const Component = ({ className, items }) => {
 
+	// RENDER
 	return (
 		<div className={ `${ className } impressions` }>
 			<div className="impressions__inner">
@@ -18,4 +21,5 @@ const Impressions = ({ className, items }) => {
 
 };
 
-export default Impressions;
+// EXPORTS
+export default Component;

@@ -53,6 +53,8 @@
 		"template-curly-spacing": "off",
 		"quote-props": "off",
 		"import/prefer-default-export": "off",
-		"react/no-unescaped-entities": "off"
+		"react/no-unescaped-entities": "off",
+		"react/require-default-props": "off",
+		"object-shorthand": "off"
 	}
 }

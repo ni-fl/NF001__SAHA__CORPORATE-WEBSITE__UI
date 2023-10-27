@@ -1,8 +1,12 @@
-import axios from 'axios';
-
+// FETCH CORPORATE
 const fetchCorporate = async () => {
-	const response = await axios.get(`${ process.env.NEXT_PUBLIC_STRAPI_URI }/api/corporate?populate=deep`);
-	return response;
+	const res = await fetch(`${ process.env.NEXT_PUBLIC_CMS_URI }/api/corporate?populate=deep`, {
+		next: { revalidate: 300 },
+		method: 'GET',
+	});
+	const { data } = await res.json();
+	return data;
 };
 
+// EXPORTS
 export default fetchCorporate;

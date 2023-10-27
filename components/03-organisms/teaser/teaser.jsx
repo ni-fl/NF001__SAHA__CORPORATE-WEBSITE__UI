@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import HighlightSlider from 'components/02-molecules/highlight-slider/highlight-slider';
 import HighlightPreview from 'components/02-molecules/highlight-preview/highlight-preview';
@@ -5,14 +8,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
 
-const Teaser = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMOPNENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const teaserRef = useRef();
 	const teaserTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -25,6 +31,7 @@ const Teaser = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="teaser" ref={ teaserRef }>
 			<HighlightSlider className="teaser__highlight-slider animation--fade-in" items={ data?.attributes.projects.data } />
@@ -34,4 +41,5 @@ const Teaser = ({ data }) => {
 
 };
 
-export default Teaser;
+// EXPORTS
+export default Component;

@@ -1,8 +1,12 @@
-import axios from 'axios';
-
+// FETCH MY-ETHIC
 const fetchMyEthic = async () => {
-	const response = await axios.get(`${ process.env.NEXT_PUBLIC_STRAPI_URI }/api/my-ethic?populate=deep`);
-	return response;
+	const res = await fetch(`${ process.env.NEXT_PUBLIC_CMS_URI }/api/my-ethic?populate=deep`, {
+		next: { revalidate: 300 },
+		method: 'GET',
+	});
+	const { data } = await res.json();
+	return data;
 };
 
+// EXPORTS
 export default fetchMyEthic;

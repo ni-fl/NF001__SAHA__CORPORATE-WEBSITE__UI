@@ -1,10 +1,12 @@
-import PropTypes from 'prop-types';
+// IMPORTS
 import Heading from 'components/01-atoms/heading/heading';
 import Link from 'next/link';
 import Picture from 'components/01-atoms/picture/picture';
 
-const PictureCollection = ({ className, items }) => {
+// COMPONENT
+const Component = ({ className, items }) => {
 
+	// RETURN
 	return (
 		<div className={ `${ className } picture-collection` }>
 			<div className="picture-collection__container">
@@ -24,12 +26,5 @@ const PictureCollection = ({ className, items }) => {
 
 };
 
-PictureCollection.propTypes = {
-	className: PropTypes.string,
-};
-
-PictureCollection.defaultProps = {
-	className: '',
-};
-
-export default PictureCollection;
+// EXPORTS
+export default Component;

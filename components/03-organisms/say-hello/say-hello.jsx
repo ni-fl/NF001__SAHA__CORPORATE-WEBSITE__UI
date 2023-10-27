@@ -1,3 +1,6 @@
+'use client';
+
+// IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
@@ -6,14 +9,17 @@ import { gsap } from 'gsap';
 import { useRef, useEffect } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-const SayHello = ({ data }) => {
-
-	// REGISTER PLUGIN
-	gsap.registerPlugin(ScrollTrigger);
+// COMPONENT
+const Component = ({ data }) => {
 
 	// CREATE REFS
 	const sayHelloRef = useRef();
 	const sayHelloTimelineRef = useRef();
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	}, []);
 
 	// ANIMATE ELEMENTS
 	useEffect(() => {
@@ -26,6 +32,7 @@ const SayHello = ({ data }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<Section className="say-hello" ref={ sayHelloRef }>
 			<div className="say-hello__content content">
@@ -41,4 +48,5 @@ const SayHello = ({ data }) => {
 
 };
 
-export default SayHello;
+// EXPORTS
+export default Component;

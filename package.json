@@ -9,9 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.5.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "axios": "^1.5.1",
+    "cookies-next": "^4.0.0",
+    "gsap": "^3.12.2",
+    "js-sha256": "^0.10.1",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^13.5.4",
+    "next-plausible": "^3.11.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
+    "react-hook-form": "^7.47.0",
+    "react-markdown": "^9.0.0",
+    "sass": "^1.69.0",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "eslint": "^8.51.0",

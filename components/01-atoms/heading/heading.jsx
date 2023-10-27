@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
-
-const Heading = ({ className, children, level, lookLike }) => {
+// COMPONENT
+const Component = ({ className = '', children = null, level = 'h1', lookLike = null }) => {
 
 	switch (level) {
 	case 'h1': return <h1 className={ ` ${ className } heading heading--${ lookLike || level }` }>{ children }</h1>;
@@ -13,15 +12,4 @@ const Heading = ({ className, children, level, lookLike }) => {
 
 };
 
-Heading.propTypes = {
-	className: PropTypes.string,
-	children: PropTypes.node.isRequired,
-	level: PropTypes.string,
-};
-
-Heading.defaultProps = {
-	className: '',
-	level: 'h1',
-};
-
-export default Heading;
+export default Component;

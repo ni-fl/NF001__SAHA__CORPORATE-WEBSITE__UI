@@ -28,6 +28,8 @@
 		"block-no-empty": null,
 		"scss/at-import-partial-extension": null,
 		"media-feature-range-notation": null,
-		"no-descending-specificity": null
+		"no-descending-specificity": null,
+		"function-url-quotes": null,
+		"import-notation": null
   }
 }

@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
+// IMPORTS
 import { gsap } from 'gsap';
 import { useEffect, useRef } from 'react';
 
-const Scroller = ({ className }) => {
+// COMPONENT
+const Component = ({ className }) => {
 
+	// SETUP REFS
 	const scrollerRef = useRef();
 
+	// HANDLE CLICK
 	const handleClick = () => {
 		if (typeof window !== 'undefined') {
 			const viewportHeight = window.innerHeight;
@@ -13,6 +16,7 @@ const Scroller = ({ className }) => {
 		};
 	};
 
+	// SCROLL DOWN
 	useEffect(() => {
 		if (!scrollerRef) return;
 		const context = gsap.context(() => {
@@ -21,6 +25,7 @@ const Scroller = ({ className }) => {
 		return () => { return context.revert(); };
 	}, []);
 
+	// RENDER
 	return (
 		<div className={ `${ className } scroller` } href="/#sroller-target" ref={ scrollerRef }>
 			<img className="scroller__icon" src="/icons/chevron-down.svg" alt="Scroller" onClick={ handleClick } />
@@ -29,12 +34,5 @@ const Scroller = ({ className }) => {
 
 };
 
-Scroller.propTypes = {
-	className: PropTypes.string,
-};
-
-Scroller.defaultProps = {
-	className: '',
-};
-
-export default Scroller;
+// EXPORTS
+export default Component;
