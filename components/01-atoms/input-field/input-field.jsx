@@ -13,7 +13,7 @@ const InputField = ({ className = '', id = '', placeholder = '', type = 'text', 
 				{ icon === 'user' && <User className="label__icon" /> }
 				{ icon === 'key' && <Key className="label__icon" /> }
 			</div>
-			<input className="input-field__input text text--small" id="id" type={ type } placeholder={ placeholder } { ...register(id, validation) } defaultValue={ defaultValue } />
+			<input className="input-field__input text text--small" id={ id } type={ type } placeholder={ placeholder } { ...register(id, validation) } defaultValue={ defaultValue } />
 		</div>
 	);
 
