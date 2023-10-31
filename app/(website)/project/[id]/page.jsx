@@ -10,8 +10,9 @@ const generateMetadata = async ({ params }) => {
 
 	// RETURN METADATA
 	return {
-		title: `${ project.attributes.heading } | Samira Haas`,
-		description: project.attributes.description,
+		key: `${ project.attributes.heading }` || 'Samira Haas',
+		title: `${ project.attributes.heading } | Samira Haas` || 'Samira Haas',
+		description: project.attributes.description || ' ',
 	};
 
 };
