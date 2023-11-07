@@ -6,11 +6,11 @@ const Component = ({ className = '', children = null, href = '#', onClick = null
 
 	// RENDER
 	return (
-		<Link className={ ` ${ className } anchor` } href={ href } onClick={ onClick }>
+		<a className={ ` ${ className } anchor` } href={ href } onClick={ onClick }>
 			<span className="anchor__content">
 				{ children }
 			</span>
-		</Link>
+		</a>
 	);
 
 };

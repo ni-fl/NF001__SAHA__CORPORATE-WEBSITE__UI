@@ -29,12 +29,12 @@ const Component = () => {
 	// RENDER
 	return (
 		<Section className="jumper" ref={ jumperRef }>
-			<Link className="jumper__link animation--fade-in" href="/showcase/corporate">Corporate</Link>
-			<Link className="jumper__link animation--fade-in" href="/showcase/storytelling">Storytelling</Link>
-			<Link className="jumper__link animation--fade-in" href="/showcase/architecture">Architektur</Link>
-			<Link className="jumper__link animation--fade-in" href="/showcase/weddings">Hochzeiten</Link>
-			<Link className="jumper__link animation--fade-in" href="/showcase/design">Gestaltung</Link>
-			<Link className="jumper__link animation--fade-in" href="/contact">Kontakt</Link>
+			<a className="jumper__link animation--fade-in" href="/showcase/corporate">Corporate</a>
+			<a className="jumper__link animation--fade-in" href="/showcase/storytelling">Storytelling</a>
+			<a className="jumper__link animation--fade-in" href="/showcase/architecture">Architektur</a>
+			<a className="jumper__link animation--fade-in" href="/showcase/weddings">Hochzeiten</a>
+			<a className="jumper__link animation--fade-in" href="/showcase/design">Gestaltung</a>
+			<a className="jumper__link animation--fade-in" href="/contact">Kontakt</a>
 		</Section>
 	);
 

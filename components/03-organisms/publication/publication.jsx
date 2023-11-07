@@ -46,9 +46,9 @@ const Component = ({ data }) => {
 							{ item.address.map((line) => {
 								return (
 									line.link ? (
-										<Link className="item__link" href={ line.link } key={ line.id }>
+										<a className="item__link" href={ line.link } key={ line.id }>
 											<Text className="item__text">{ line.text }</Text>
-										</Link>
+										</a>
 									) : (
 										<Text className="item__text" key={ line.id }>{ line.text }</Text>
 									)

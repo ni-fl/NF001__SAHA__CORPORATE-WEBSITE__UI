@@ -75,9 +75,9 @@ const Component = () => {
 				<div className="navigation__background" />
 				<div className="navigation__bar bar">
 					<div className="bar__inner">
-						<Link className="bar__logo-link" href="/" onClick={ (event) => { return handleLinkClick(event, '/'); } }>
+						<a className="bar__logo-link" href="/">
 							<Image className="bar__logo" src="/logos/full.svg" alt="Samira Haas" width="140" height="40" priority />
-						</Link>
+						</a>
 						<Hamburger className="bar__hamburger" isOpen={ isOpen } onClick={ toggleMenu } />
 					</div>
 				</div>

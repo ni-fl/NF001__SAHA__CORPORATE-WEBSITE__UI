@@ -32,10 +32,10 @@ const Component = () => {
 	// RENDER
 	return (
 		<Section className="cta" ref={ ctaRef }>
-			<Link className="cta__link link animation--fade-in" href="/contact">
+			<a className="cta__link link animation--fade-in" href="/contact">
 				<Heading className="link__text" level="h2">Lets work together</Heading>
 				<img className="link__icon" src="/icons/arrow-right.svg" width="56" height="32" alt="Arrow" />
-			</Link>
+			</a>
 		</Section>
 	);
 

@@ -47,16 +47,16 @@ const Footer = () => {
 				<div className="footer__content content">
 					<Heading className="content__title animation--fade-in" level="h3">Fotografie und Gestaltung</Heading>
 					<div className="content__contact-links contact-links animation--fade-in">
-						<Link className="contact-links__item" href="mailto:mail@samirahaas.ch">mail@samirahaas.ch</Link>
-						<Link className="contact-links__item" href="tel:0797894050">079 789 40 50</Link>
+						<a className="contact-links__item" href="mailto:mail@samirahaas.ch">mail@samirahaas.ch</a>
+						<a className="contact-links__item" href="tel:0797894050">079 789 40 50</a>
 					</div>
 					<div className="content__social-media-links social-media-links animation--fade-in">
-						<Link className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank">Instagram</Link>
-						<Link className="social-media-links__item" href="https://www.facebook.com/samira.haas" target="_blank">Facebook</Link>
+						<a className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank" rel="noreferrer">Instagram</a>
+						<a className="social-media-links__item" href="https://www.facebook.com/samira.haas" target="_blank" rel="noreferrer">Facebook</a>
 					</div>
 					<div className="content__legal-links legal-links animation--fade-in">
-						<Link className="legal-links__item" href="/imprint">Impressum</Link>
-						<Link className="legal-links__item" href="/data-privacy">Datenschutz</Link>
+						<a className="legal-links__item" href="/imprint">Impressum</a>
+						<a className="legal-links__item" href="/data-privacy">Datenschutz</a>
 					</div>
 					<Text className="content__copyright animation--fade-in">© { getCurrentYear() } Samira Haas</Text>
 				</div>

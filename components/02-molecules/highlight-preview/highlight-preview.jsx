@@ -55,9 +55,9 @@ const Component = ({ className, items }) => {
 			<div className="highlight-preview__preview preview">
 				{ items?.map((item) => {
 					return (
-						<Link className="preview__image image" href={ `/project/${ item.id}` } key={ item.id }>
+						<a className="preview__image image" href={ `/project/${ item.id}` } key={ item.id }>
 							<Picture className="image__source" src={ item.attributes.teaser.data?.attributes.url } alt="Image" quality={ 100 } priority />
-						</Link>
+						</a>
 					);
 				})}
 			</div>
@@ -68,10 +68,10 @@ const Component = ({ className, items }) => {
 			<div className="highlight-preview__projects projects">
 				{ items?.map((item) => {
 					return (
-						<Link className="projects__box box" key={ item.id } href={ `/project/${ item.id }` }>
+						<a className="projects__box box" key={ item.id } href={ `/project/${ item.id }` }>
 							<Heading className="box__label" level="h3">{ item.attributes.category }</Heading>
 							<Heading className="box__title" level="h5">{ item.attributes.heading }</Heading>
-						</Link>
+						</a>
 					);
 				})}
 			</div>

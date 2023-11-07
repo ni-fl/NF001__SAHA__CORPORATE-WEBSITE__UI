@@ -1,6 +1,5 @@
 // IMPORTS
 import Text from 'components/01-atoms/text/text';
-import Link from 'next/link';
 import { gsap } from 'gsap';
 import { useRouter } from 'next/navigation';
 
@@ -22,14 +21,14 @@ const Component = ({ className, next, previous }) => {
 	// RENDER
 	return (
 		<nav className={ `${ className } impressions-navigation` }>
-			<Link className="impressions-navigation__item item item--previous" href={ `/project/${ previous}` } onClick={ (event) => handleNavigation(event, `/project/${ previous }`) }>
+			<a className="impressions-navigation__item item item--previous" href={ `/project/${ previous}` }>
 				<img className="item__icon" src="/icons/chevron-left.svg" alt="Arrow" />
 				<Text className="item__label">zurück</Text>
-			</Link>
-			<Link className="impressions-navigation__item item item--next" href={ `/project/${ next }` } onClick={ (event) => handleNavigation(event, `/project/${ next }`) }>
+			</a>
+			<a className="impressions-navigation__item item item--next" href={ `/project/${ next }` }>
 				<Text className="item__label">weiter</Text>
 				<img className="item__icon" src="/icons/chevron-right.svg" alt="Arrow" />
-			</Link>
+			</a>
 		</nav>
 	);
 
