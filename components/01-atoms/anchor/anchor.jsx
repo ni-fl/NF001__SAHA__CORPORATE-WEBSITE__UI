@@ -1,6 +1,3 @@
-// IMPORTS
-import Link from 'next/link';
-
 // COMPONENT
 const Component = ({ className = '', children = null, href = '#', onClick = null }) => {
 
