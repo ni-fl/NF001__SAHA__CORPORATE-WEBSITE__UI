@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.2] - 08.11.2023
+Refactor: metadata to disallow zoom
+Setup: vercel config to disable auto-deployments
+Fix: correct import for anchor comopnent
+Refactor: add eager loading to images
+Refactor: replace links with anchors
+
 ## [v0.0.1] - 03.11.2023
 Setup: README.md
 Refactor: add fallback for loop in impressions component
