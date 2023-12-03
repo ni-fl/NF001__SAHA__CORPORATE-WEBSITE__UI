@@ -1,6 +1,6 @@
 // IMPORTS
 import Showcase from 'components/03-organisms/showcase/showcase';
-import { fetchCorporate } from 'queries';
+import { fetchBusiness } from 'queries';
 
 // METADATA
 const metadata = {
@@ -11,7 +11,7 @@ const metadata = {
 const Component = async () => {
 
 	// FETCH CORPORATE
-	const corporate = await fetchCorporate();
+	const corporate = await fetchBusiness();
 
 	// RENDER
 	return (

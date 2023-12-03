@@ -13,7 +13,7 @@
 	&__bar, .bar {
 		padding: 0 32px;
 		left: 0;
-		top: 0px;
+		top: 0;
 		right: 0;
 		position: fixed;
 		height: 80px;
@@ -126,7 +126,7 @@
         
 	}
 
-	@media (max-height: 700px), (max-width: 850px) {
+	@media (max-height: 700px), (max-width: 900px) {
 
 
 		&__menu, .menu {

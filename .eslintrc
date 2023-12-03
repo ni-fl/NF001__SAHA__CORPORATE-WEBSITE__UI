@@ -55,6 +55,7 @@
 		"import/prefer-default-export": "off",
 		"react/no-unescaped-entities": "off",
 		"react/require-default-props": "off",
-		"object-shorthand": "off"
+		"object-shorthand": "off",
+		"rule-empty-line-before": "off"
 	}
 }

@@ -6,10 +6,10 @@ import fetchArchitecture from './fetch-architecture.js';
 import fetchSayHello from './fetch-say-hello.js';
 import fetchBehindTheScene from './fetch-behind-the-scene.js';
 import fetchProfile from './fetch-profile.js';
-import fetchCorporate from './fetch-corporate.js';
+import fetchBusiness from './fetch-business.js';
 import fetchDataPrivacy from './fetch-data-privacy.js';
 import fetchDesign from './fetch-design.js';
-import fetchStorytelling from './fetch-storytelling.js';
+import fetchFreeWork from './fetch-free-work.js';
 import fetchWedding from './fetch-wedding.js';
 import fetchProject from './fetch-project.js';
 
@@ -22,10 +22,10 @@ export {
 	fetchSayHello,
 	fetchBehindTheScene,
 	fetchProfile,
-	fetchCorporate,
+	fetchBusiness,
 	fetchDataPrivacy,
 	fetchDesign,
-	fetchStorytelling,
+	fetchFreeWork,
 	fetchWedding,
 	fetchProject,
 };

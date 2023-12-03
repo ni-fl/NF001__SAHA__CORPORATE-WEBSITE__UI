@@ -1,6 +1,6 @@
 // IMPORTS
 import Showcase from 'components/03-organisms/showcase/showcase';
-import { fetchStorytelling } from 'queries';
+import { fetchFreeWork } from 'queries';
 
 // METADATA
 const metadata = {
@@ -12,7 +12,7 @@ const metadata = {
 const Component = async () => {
 
 	// FETCH STORYTELLING
-	const storytelling = await fetchStorytelling();
+	const storytelling = await fetchFreeWork();
 
 	// RENDER
 	return (

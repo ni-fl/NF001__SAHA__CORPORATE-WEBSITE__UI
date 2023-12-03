@@ -83,11 +83,11 @@ const Component = () => {
 				</div>
 				<div className="navigation__menu menu">
 					<div className="menu__main-links main-links">
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/corporate" onClick={ (event) => { return handleLinkClick(event, '/showcase/corporate'); } }>Corporate</Link>
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/storytelling" onClick={ (event) => { return handleLinkClick(event, '/showcase/storytelling'); } }>Storytelling</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/business" onClick={ (event) => { return handleLinkClick(event, '/showcase/business'); } }>Business</Link>
 						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/architecture" onClick={ (event) => { return handleLinkClick(event, '/showcase/architecture'); } }>Architektur</Link>
 						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/weddings" onClick={ (event) => { return handleLinkClick(event, '/showcase/weddings'); } }>Hochzeiten</Link>
-						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/design" onClick={ (event) => { return handleLinkClick(event, '/showcase/design'); } }>Gestaltung</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/design" onClick={ (event) => { return handleLinkClick(event, '/showcase/design'); } }>Gestaltungen</Link>
+						<Link className="main-links__item heading--h1 animation--fade-in" href="/showcase/free-work" onClick={ (event) => { return handleLinkClick(event, '/showcase/free-work'); } }>Freie Arbeiten</Link>
 						<Link className="main-links__item heading--h1 animation--fade-in" href="/contact" onClick={ (event) => { return handleLinkClick(event, '/contact'); } }>Kontakt</Link>
 					</div>
 					<div className="menu__social-links social-links animation--fade-in">
