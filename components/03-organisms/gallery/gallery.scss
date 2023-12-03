@@ -6,6 +6,7 @@
 		grid-template-areas: 
 			"heading" 
 			"description"
+			"references"
 			"impressions"
 			"navigation";
 		grid-template-columns: 1fr;
@@ -21,7 +22,13 @@
 		max-width: 720px;
 		margin-bottom: 32px;
 	}
-	
+
+	&__references {
+		grid-area: references;
+		max-width: 720px;
+		margin-bottom: 32px;
+	}
+
 	&__impressions, .impressions {
 		grid-area: impressions;
 		margin-bottom: 32px;
@@ -33,6 +40,7 @@
 			grid-template-areas: 
 				"heading" 
 				"description"
+				"references"
 				"impressions"
 				"navigation";
 			grid-template-columns: 1fr;
