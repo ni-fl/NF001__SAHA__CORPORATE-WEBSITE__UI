@@ -8,11 +8,11 @@ import Cta from 'components/03-organisms/cta/cta';
 import Main from 'components/03-organisms/main/main';
 
 // COMPONENT
-const Component = ({ className, children }) => {
+const Component = ({ children }) => {
 
 	// RENDER
 	return (
-		<div className={ `${ className } page` }>
+		<div className="page">
 			<Navigation />
 			<Main content={ children } />
 			<Cta />
