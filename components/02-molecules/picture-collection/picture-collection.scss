@@ -97,6 +97,18 @@
 			margin-right: calc(100% / 24 * 1);
 		}
 
+		&[data-format="F_05_14_05"] {
+			margin-left: calc(100% / 24 * 5);
+			width: calc(100% / 24 * 14);
+			margin-right: calc(100% / 24 * 5);
+		}
+
+		&[data-format="F_04_16_04"] {
+			margin-left: calc(100% / 24 * 4);
+			width: calc(100% / 24 * 16);
+			margin-right: calc(100% / 24 * 4);
+		}
+
 		&__image-wrapper {
 			overflow: hidden;
 			width: 100%;
