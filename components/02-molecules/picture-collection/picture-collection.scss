@@ -240,6 +240,18 @@
 				margin-right: calc(100% / 24 * 0.5);
 			}
 
+			&[data-format="F_05_14_05"] {
+				margin-left: calc(100% / 24 * 2.5);
+				width: calc(100% / 24 * 19);
+				margin-right: calc(100% / 24 * 2.5);
+			}
+	
+			&[data-format="F_04_16_04"] {
+				margin-left: calc(100% / 24 * 2);
+				width: calc(100% / 24 * 20);
+				margin-right: calc(100% / 24 * 2);
+			}
+
 		}
 
 	}
