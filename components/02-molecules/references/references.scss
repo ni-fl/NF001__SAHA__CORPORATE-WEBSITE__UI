@@ -8,13 +8,17 @@
 			margin-bottom: 0;
 		}
 
-		&__content, .content {
+		&__title, 
+		&__heading, 
+		&__name, 
+		&__separator,
+		&__anchor {
+			display: inline-block; 
+		}
 
-			&__name, 
-			&__anchor {
-				display: inline-block; 
-			}
-
+		&__heading, 
+		&__separator {
+			margin-right: 4px;
 		}
 
 	}

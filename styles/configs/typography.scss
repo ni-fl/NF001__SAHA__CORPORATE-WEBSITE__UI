@@ -73,6 +73,10 @@
 		font-size: 26px;
 	}
 
+	&--bold {
+		font-family: Usual-Regular, sans-serif;
+	}
+
 	p, a {
 		font-size: inherit;
 	}
@@ -147,6 +151,18 @@
 			
 	}
 	
+}
+
+.references {
+
+	&__item, .item {
+
+		&__heading {
+			text-transform: uppercase;
+		}
+
+	}
+
 }
 
 @media (max-width: 1800px) {
