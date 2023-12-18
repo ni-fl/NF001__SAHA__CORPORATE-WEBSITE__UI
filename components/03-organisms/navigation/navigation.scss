@@ -69,8 +69,8 @@
 				&:nth-child(2) { margin-right: 280px; }
 				&:nth-child(3) { margin-left: 40px; }
 				&:nth-child(4) { margin-right: 240px; }
-				&:nth-child(5) { margin-left: 440px; }
-				&:nth-child(6) { margin-right: 120px; }
+				&:nth-child(5) { margin-left: 240px; }
+				&:nth-child(6) { margin-right: 0px; }
 
 			}
 
@@ -102,8 +102,8 @@
 					&:nth-child(2) { margin-right: 200px; }
 					&:nth-child(3) { margin-left: 0px; }
 					&:nth-child(4) { margin-right: 160px; }
-					&:nth-child(5) { margin-left: 320px; }
-					&:nth-child(6) { margin-right: 0px; }
+					&:nth-child(5) { margin-left: 80px; }
+					&:nth-child(6) { margin-right: 80px; }
 
 				}
 
@@ -126,7 +126,7 @@
         
 	}
 
-	@media (max-height: 700px), (max-width: 900px) {
+	@media (max-height: 700px), (max-width: 850px) {
 
 
 		&__menu, .menu {
@@ -140,8 +140,8 @@
 					&:nth-child(2) { margin-right: 80px; }
 					&:nth-child(3) { margin-left: 40px; }
 					&:nth-child(4) { margin-right: 80px; }
-					&:nth-child(5) { margin-left: 100px; }
-					&:nth-child(6) { margin-right: 40px; }
+					&:nth-child(5) { margin-left: 40px; }
+					&:nth-child(6) { margin-right: 0px; }
 
 				}
 
@@ -151,7 +151,7 @@
 
 	}
         
-	@media (max-height: 450px), (max-width: 400px) {
+	@media (max-height: 450px), (max-width: 450px) {
 
         
 		&__bar, .bar {
@@ -173,8 +173,8 @@
 					&:nth-child(2) { margin-right: 40px; }
 					&:nth-child(3) { margin-left: 24px; }
 					&:nth-child(4) { margin-right: 40px; }
-					&:nth-child(5) { margin-left: 64px; }
-					&:nth-child(6) { margin-right: 24px; }
+					&:nth-child(5) { margin-left: 0px; }
+					&:nth-child(6) { margin-right: 0px; }
 
 				}
 
