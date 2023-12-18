@@ -52,7 +52,6 @@ const Footer = () => {
 					</div>
 					<div className="content__social-media-links social-media-links animation--fade-in">
 						<a className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank" rel="noreferrer">Instagram</a>
-						<a className="social-media-links__item" href="https://www.facebook.com/samira.haas" target="_blank" rel="noreferrer">Facebook</a>
 					</div>
 					<div className="content__legal-links legal-links animation--fade-in">
 						<a className="legal-links__item" href="/imprint">Impressum</a>
