@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.3] - 18.12.2023
+Refactor: add format to showcase
+Refactor: correct paddings of sections
+Refactor: style of navigation
+Refactor: styles of references in gallery component
+Refactor: add new formats to picture-collection component
+Update: remove facebook link from footer
+Fix: remove unused class prop in page layout
+Setup: references partial in gallery component
+Refactor: change category labels for projects
+Refactor: change style of anchor
+Setup: .nvmrc file
+Refactor: add apostroph to cta text
+Refactor: add image domains for new space url
+Refactor: add image domains for new space url
+Refactor: change trigger-position for animation in jumper component
+Setup: vercel config to enable auto-deployments
+Fix: layout in impressions layout
+Fix: correct filename for vercel config-file
+Refactor: remove i18 config
+
 ## [v0.0.2] - 08.11.2023
 Refactor: metadata to disallow zoom
 Setup: vercel config to disable auto-deployments
