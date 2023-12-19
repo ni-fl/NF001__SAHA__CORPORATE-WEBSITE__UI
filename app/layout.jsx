@@ -12,7 +12,7 @@ const metadata = {
 		description: 'Als Fotografin und Gestalterin verbinde ich meine offene und kreative Denkweise mit meiner Empathie, um individuelle und hochwertige Projekte zu schaffen. Ich glaube daran, dass jeder Moment und jede Person einzigartig ist und einen eigenen Ausdruck verdient. Mit einem Auge für Ästhetik und Liebe zum Detail erschaffe ich einzigartige visuelle Geschichten.',
 		url: 'https://samirahaas.ch',
 		siteName: 'Samira Haas',
-		images: [{ url: 'https://development.samirahaas.ch/_next/image?url=https%3A%2F%2Fsamirahaas-web-production.fra1.digitaloceanspaces.com%2Fgeneral_03_b8248b3c8b.webp', width: 800, height: 600 }],
+		images: [{ url: 'https://nf001-saha-website-space-pro.fra1.cdn.digitaloceanspaces.com/general_02_639d0d3ae0.webp', width: 600, height: 800 }],
 		locale: 'de-ch',
 		type: 'website',
 	},

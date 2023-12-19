@@ -4,7 +4,7 @@ import { fetchBusiness } from 'queries';
 
 // METADATA
 const metadata = {
-	title: 'Corporate | Samira Haas',
+	title: 'Business | Samira Haas',
 	description: 'Lorem Ipsum',
 };
 // COMPONENT

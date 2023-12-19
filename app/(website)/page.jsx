@@ -6,6 +6,12 @@ import AboutMe from 'components/03-organisms/about-me/about-me';
 import MyEthics from 'components/03-organisms/my-ethics/my-ethics';
 import { fetchAboutMe, fetchHero, fetchTeaser, fetchMyEthic } from 'queries/index.js';
 
+// METADATA
+const metadata = {
+	title: 'Samira Haas',
+	description: 'Lorem Ipsum',
+};
+
 // COMPONENT
 const Component = async () => {
 
@@ -34,4 +40,5 @@ const Component = async () => {
 };
 
 // EXPORTS
+export { metadata };
 export default Component;

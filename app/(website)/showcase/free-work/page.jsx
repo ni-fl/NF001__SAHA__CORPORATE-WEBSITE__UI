@@ -4,7 +4,7 @@ import { fetchFreeWork } from 'queries';
 
 // METADATA
 const metadata = {
-	title: 'Storytelling | Samira Haas',
+	title: 'Freie Arbeiten | Samira Haas',
 	description: 'Lorem Ipsum',
 };
 
