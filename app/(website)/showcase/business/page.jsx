@@ -5,7 +5,7 @@ import { fetchBusiness } from 'queries';
 // METADATA
 const metadata = {
 	title: 'Business | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Professionelle Fotografin für Ihr Business. Egal ob Mitarbeiterfotos, Firmenbilder oder Events. Modern und authentisch. Jetzt unverbindlich anfragen!',
 };
 // COMPONENT
 const Component = async () => {

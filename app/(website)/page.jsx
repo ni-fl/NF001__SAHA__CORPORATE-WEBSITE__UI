@@ -9,7 +9,7 @@ import { fetchAboutMe, fetchHero, fetchTeaser, fetchMyEthic } from 'queries/inde
 // METADATA
 const metadata = {
 	title: 'Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Ich bin Samira aus Luzern. Fotografin und Gestalterin. Mit einem Auge für Ästhetik und Liebe zum Detail erschaffe ich einzigartige visuelle Projekte.',
 };
 
 // COMPONENT

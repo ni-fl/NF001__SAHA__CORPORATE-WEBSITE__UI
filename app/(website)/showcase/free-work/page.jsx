@@ -5,7 +5,7 @@ import { fetchFreeWork } from 'queries';
 // METADATA
 const metadata = {
 	title: 'Freie Arbeiten | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Fotografin und Künstlerin aus Luzern. Ihre Leidenschaft für Fotografie entstand aus dem Wunsch, Emotionen und Geschichten durch Bilder auszudrücken.',
 };
 
 // COMPONENT

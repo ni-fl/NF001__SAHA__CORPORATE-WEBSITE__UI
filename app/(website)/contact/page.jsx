@@ -7,7 +7,7 @@ import { fetchBehindTheScene, fetchSayHello, fetchProfile } from 'queries/index.
 // METADATA
 const metadata = {
 	title: 'Kontakt | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Ich bin Samira aus Luzern. Fotografin und Gestalterin. Lass uns gemeinsam dein Unternehmen sichtbar machen. Ich freue mich auf deine Kontaktaufnahme.',
 };
 
 // COMPNENT

@@ -4,7 +4,7 @@ import { fetchWedding } from 'queries';
 
 const metadata = {
 	title: 'Hochzeiten | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Hey, ich bin Samira aus Luzern. Professionelle Hochzeitsfotografin für natürliche und authentische Hochzeitsbilder. Jetzt unverbindlich anfragen.',
 };
 // COMPONENT
 const Component = async () => {

@@ -12,7 +12,7 @@ const generateMetadata = async ({ params }) => {
 	return {
 		key: `${ project.attributes.heading }` || 'Samira Haas',
 		title: `${ project.attributes.heading } | Samira Haas` || 'Samira Haas',
-		description: project.attributes.description || ' ',
+		description: project.attributes.description || 'Fotografie und Gestaltung für Grossfirmen, KMU oder Private in der ganzen Schweiz. Persönlich, authentisch und professionell. Jetzt anfragen.',
 	};
 
 };

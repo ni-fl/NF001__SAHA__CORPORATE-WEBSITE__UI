@@ -5,7 +5,7 @@ import fetchImprint from 'queries/fetch-imprint';
 // METADATA
 const metadata = {
 	title: 'Impressum | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Verantwortlich für den Inhalt: Samira Haas | Web Development: haas web solutions',
 };
 
 // COMPONENT

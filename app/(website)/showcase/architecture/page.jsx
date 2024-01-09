@@ -5,7 +5,7 @@ import { fetchArchitecture } from 'queries/index.js';
 // METADATA
 const metadata = {
 	title: 'Architektur | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Professionelle Architekturfotografie für Immobilien, Inneneinrichtungen oder Bauprojekte. Hochwertige Bilder für die Vermarktung Ihrer Objekte.',
 };
 
 // COMPONENT

@@ -5,7 +5,7 @@ import { fetchDesign } from 'queries';
 // METADATA
 const metadata = {
 	title: 'Design | Samira Haas',
-	description: 'Lorem Ipsum',
+	description: 'Hi, ich bin Samira, ausgebildete Gestalterin aus Luzern. Ich kreiere deinen visuellen Markenauftritt – vom Logo über Broschüren bis hin zur Website.',
 };
 
 // COMPONENT
