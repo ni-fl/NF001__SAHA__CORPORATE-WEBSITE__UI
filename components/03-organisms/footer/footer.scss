@@ -45,7 +45,7 @@
 		&__social-media-links, .social-media-links {
 			grid-area: social-media-links;
 			display: flex;
-			flex-direction: column;
+			flex-direction: column-reverse;
 			align-items: flex-start;
 
 			&__item {
