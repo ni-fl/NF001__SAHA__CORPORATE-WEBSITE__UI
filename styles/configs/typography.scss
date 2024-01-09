@@ -157,10 +157,17 @@
 
 	&__item, .item {
 
-		&__heading {
-			text-transform: uppercase;
-		}
 
+		&__heading, 
+		&__name, 
+		&__separator, 
+		&__anchor, 
+		&__text {
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		
 	}
 
 }

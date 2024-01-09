@@ -2,7 +2,7 @@
 
 	
 	&__item, .item {
-		margin-bottom: 16px;
+		margin-bottom: 4px;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -19,6 +19,24 @@
 		&__heading, 
 		&__separator {
 			margin-right: 4px;
+		}
+
+	}
+
+	@media (max-width: 550px) {
+
+		&__item, .item {
+			margin-bottom: 12px;
+
+			&__heading, 
+			&__name {
+				display: block;
+			}
+
+			&__separator {
+				display: none;
+			}
+
 		}
 
 	}

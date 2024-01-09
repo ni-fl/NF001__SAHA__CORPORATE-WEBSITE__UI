@@ -1,5 +1,6 @@
 // IMPORTS
 import Text from 'components/01-atoms/text/text';
+import Heading from 'components/01-atoms/heading/heading';
 
 // COMPONENT
 const Component = ({ className, items }) => {
