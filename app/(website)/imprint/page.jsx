@@ -1,6 +1,9 @@
 // IMPORTS
 import Publication from 'components/03-organisms/publication/publication';
 import fetchImprint from 'queries/fetch-imprint';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
 
 // METADATA
 const metadata = {
@@ -18,6 +21,9 @@ const Component = async () => {
 	return (
 		<>
 			<Publication data={ imprint } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

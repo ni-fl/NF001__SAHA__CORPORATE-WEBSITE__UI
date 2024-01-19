@@ -1,5 +1,8 @@
 // IMPORTS
 import Showcase from 'components/03-organisms/showcase/showcase';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
 import { fetchBusiness } from 'queries';
 
 // METADATA
@@ -17,6 +20,9 @@ const Component = async () => {
 	return (
 		<>
 			<Showcase data={ corporate } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

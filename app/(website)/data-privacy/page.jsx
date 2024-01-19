@@ -1,5 +1,8 @@
 // IMPORTS
 import LegalInformations from 'components/03-organisms/legal-informations/legal-informations';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
 import { fetchDataPrivacy } from 'queries';
 
 // METADATA
@@ -18,6 +21,9 @@ const Component = async () => {
 	return (
 		<>
 			<LegalInformations data={ dataPrivacy } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

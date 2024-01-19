@@ -2,7 +2,11 @@
 import SayHello from 'components/03-organisms/say-hello/say-hello';
 import Profile from 'components/03-organisms/profile/profile';
 import BehindTheScene from 'components/03-organisms/behind-the-scene/behind-the-scene';
-import { fetchBehindTheScene, fetchSayHello, fetchProfile } from 'queries/index.js';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
+import { fetchBehindTheScene, fetchSayHello, fetchProfile } from 'queries';
+
 
 // METADATA
 const metadata = {
@@ -28,6 +32,9 @@ const Component = async () => {
 			<SayHello data={ sayHello } />
 			<Profile data={ profile } />
 			<BehindTheScene data={ behindTheScene } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

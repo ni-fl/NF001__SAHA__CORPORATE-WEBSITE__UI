@@ -1,6 +1,9 @@
 // IMPORTS
 import Showcase from 'components/03-organisms/showcase/showcase';
-import { fetchArchitecture } from 'queries/index.js';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
+import { fetchArchitecture } from 'queries';
 
 // METADATA
 const metadata = {
@@ -18,6 +21,9 @@ const Component = async () => {
 	return (
 		<>
 			<Showcase data={ architecture } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

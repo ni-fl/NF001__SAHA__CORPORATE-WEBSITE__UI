@@ -1,6 +1,10 @@
 // IMPORTS
 import Gallery from 'components/03-organisms/gallery/gallery';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
 import { fetchProject } from 'queries';
+
 
 // GENERATE METADATA
 const generateMetadata = async ({ params }) => {
@@ -27,6 +31,9 @@ const Component = async ({ params }) => {
 	return (
 		<>
 			<Gallery heading={ project.attributes.heading } data={ project } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

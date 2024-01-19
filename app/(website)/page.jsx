@@ -4,6 +4,9 @@ import Hero from 'components/03-organisms/hero/hero';
 import Teaser from 'components/03-organisms/teaser/teaser';
 import AboutMe from 'components/03-organisms/about-me/about-me';
 import MyEthics from 'components/03-organisms/my-ethics/my-ethics';
+import Cta from 'components/03-organisms/cta/cta';
+import Footer from 'components/03-organisms/footer/footer';
+import Jumper from 'components/03-organisms/jumper/jumper';
 import { fetchAboutMe, fetchHero, fetchTeaser, fetchMyEthic } from 'queries/index.js';
 
 // METADATA
@@ -34,6 +37,9 @@ const Component = async () => {
 			<Teaser data={ teaser } />
 			<AboutMe data={ aboutMe } />
 			<MyEthics data={ myEthic } />
+			<Cta />
+			<Jumper />
+			<Footer />
 		</>
 	);
 

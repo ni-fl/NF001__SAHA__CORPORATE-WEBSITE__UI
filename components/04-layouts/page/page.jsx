@@ -15,9 +15,6 @@ const Component = ({ children }) => {
 		<div className="page">
 			<Navigation />
 			<Main content={ children } />
-			<Cta />
-			<Jumper />
-			<Footer />
 		</div>
 	);
 

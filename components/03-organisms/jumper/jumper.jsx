@@ -1,3 +1,5 @@
+'use client';
+
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Link from 'next/link';
