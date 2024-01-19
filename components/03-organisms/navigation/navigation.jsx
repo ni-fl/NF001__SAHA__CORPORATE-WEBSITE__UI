@@ -60,7 +60,7 @@ const Component = () => {
 	useEffect(() => {
 		const context = gsap.context(() => {
 			menuTimelineRef.current = gsap.timeline({ paused: true });
-			menuTimelineRef.current.to('.navigation .navigation__menu', { top: '0vh', duration: 1, ease: 'power4.inOut' }, 0);
+			menuTimelineRef.current.to('.navigation .navigation__menu', { top: '0dvh', duration: 1, ease: 'power4.inOut' }, 0);
 			menuTimelineRef.current.to('.navigation .main-links__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.inOut', stagger: 0.05 }, 0.5);
 			menuTimelineRef.current.to('.navigation .social-links__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.inOut' }, 1);
 		}, navigationRef.current);
