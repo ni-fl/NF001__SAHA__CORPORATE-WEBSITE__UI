@@ -98,11 +98,6 @@ const Component = () => {
 		validateInput();
 	};
 
-	// CHECK FORM WHEN INPUT OF 6 CHARS IS REACHED
-	useEffect(() => {
-		if (input.length === 6) validateInput();
-	}, [input]);
-
 	// LISTEN ON KEYDOWN
 	useEffect(() => {
 		document.addEventListener('keydown', handleKeyPress);
