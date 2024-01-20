@@ -31,15 +31,13 @@ const Component = ({ data }) => {
 	});
 
 	// GET ITEMS
-	const items = useMemo(() => {
-		return data && data.attributes.showcase.map((item) => {
-			return {
-				id: item.project.data.id,
-				format: item.format,
-				heading: item.project.data.attributes.heading,
-				preview: item.project.data.attributes.preview.data?.attributes,
-			};
-		});
+	const items = data && data.attributes.showcase.map((item) => {
+		return {
+			id: item.project.data.id,
+			format: item.format,
+			heading: item.project.data.attributes.heading,
+			image: item.project.data.attributes.preview.data?.attributes,
+		};
 	});
 
 	// RENDER

@@ -3,6 +3,7 @@
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Picture from 'components/01-atoms/picture/picture';
+import PictureList from 'components/02-molecules/picture-list/picture-list';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect } from 'react';
@@ -23,7 +24,7 @@ const Component = ({ data }) => {
 	useEffect(() => {
 		const context = gsap.context(() => {
 			behindTheSceneTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: behindTheSceneRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px' } });
-			behindTheSceneTimelineRef.current.to('.behind-the-scene .images__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25 }, 0.5);
+			behindTheSceneTimelineRef.current.to('.behind-the-scene .picture-list__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25 }, 0.5);
 		}, behindTheSceneRef);
 		return () => { return context.revert(); };
 	}, []);
@@ -32,20 +33,14 @@ const Component = ({ data }) => {
 	const items = data && data.attributes.images.data.map((item) => {
 		return {
 			id: item.id,
-			preview: item.attributes,
+			image: item.attributes,
 		};
 	});
 
 	// RENDER
 	return (
 		<Section className="behind-the-scene" ref={ behindTheSceneRef }>
-			<div className="behind-the-scene__images images">
-				{ items?.map((item) => {
-					return (
-						<Picture className="images__item animation--fade-in" src={ item.preview?.url } key={ item.id } alt="Image" width={ item.preview.width } height={ item.preview.height } />
-					);
-				})}
-			</div>
+			<PictureList items={ items } />
 		</Section>
 	);
 

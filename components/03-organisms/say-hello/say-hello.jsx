@@ -4,6 +4,7 @@
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
+import Markdown from 'components/01-atoms/markdown/markdown';
 import Picture from 'components/01-atoms/picture/picture';
 import { gsap } from 'gsap';
 import { useRef, useEffect } from 'react';
@@ -40,7 +41,7 @@ const Component = ({ data }) => {
 					<span className="heading__item animation--fade-in">{ data?.attributes.heading.top }</span>
 					<span className="heading__item animation--fade-in">{ data?.attributes.heading.sub }</span>
 				</Heading>
-				<Text className="content__text animation--fade-in">{ data?.attributes.text }</Text>
+				<Markdown className="content__text animation--fade-in">{ data?.attributes.text }</Markdown>
 			</div>
 			<Picture className="say-hello__image animation--fade-in" src={ data?.attributes.image.data?.attributes.url } alt="Samira Haas" priority />
 		</Section>

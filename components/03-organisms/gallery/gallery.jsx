@@ -40,11 +40,11 @@ const Component = ({ data }) => {
 	// RENDER
 	return (
 		<Section className="gallery" ref={ galleryRef }>
-			<Heading className="gallery__heading animation--fade-in" level="h1" lookLike="h4">{ data.attributes.heading }</Heading>
-			{ data.attributes.description ? <Markdown className="gallery__description animation--fade-in">{ data.attributes.description }</Markdown> : null }
-			{ data.attributes.references  && data.attributes.references.length ? <References className="gallery__references animation--fade-in" items={ data.attributes.references } /> : null }
-			{ data.attributes.images ? <Impressions className="gallery__impressions animation--fade-in" items={ data.attributes.images } /> : null }
-			{ data.attributes.navigation && data.attributes.navigation?.next.data.id && data.attributes.navigation?.previous.data.id ? 	<ImpressionsNavigation className="gallery__navigation animation--fade-in" next={ data.attributes.navigation.next.data.id } previous={ data.attributes.navigation.previous.data.id } /> : null }
+			{ data && data.attributes && data.attributes.heading ? <Heading className="gallery__heading animation--fade-in" level="h1" lookLike="h4">{ data.attributes.heading }</Heading> : null }
+			{ data && data.attributes && data.attributes.description ? <Markdown className="gallery__description animation--fade-in">{ data.attributes.description }</Markdown> : null }
+			{ data && data.attributes && data.attributes.references  && data.attributes.references.length ? <References className="gallery__references animation--fade-in" items={ data.attributes.references } /> : null }
+			{ data && data.attributes && data.attributes.images ? <Impressions className="gallery__impressions animation--fade-in" items={ data.attributes.images } /> : null }
+			{ data && data.attributes && data.attributes.navigation && data.attributes.navigation?.next.data.id && data.attributes.navigation?.previous.data.id ? 	<ImpressionsNavigation className="gallery__navigation animation--fade-in" next={ data.attributes.navigation.next.data.id } previous={ data.attributes.navigation.previous.data.id } /> : null }
 		</Section>
 	);
 

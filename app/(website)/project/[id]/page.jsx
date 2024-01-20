@@ -5,7 +5,6 @@ import Footer from 'components/03-organisms/footer/footer';
 import Jumper from 'components/03-organisms/jumper/jumper';
 import { fetchProject } from 'queries';
 
-
 // GENERATE METADATA
 const generateMetadata = async ({ params }) => {
 
@@ -14,9 +13,9 @@ const generateMetadata = async ({ params }) => {
 
 	// RETURN METADATA
 	return {
-		key: `${ project.attributes.heading }` || 'Samira Haas',
-		title: `${ project.attributes.heading } | Samira Haas` || 'Samira Haas',
-		description: project.attributes.description || 'Fotografie und Gestaltung für Grossfirmen, KMU oder Private in der ganzen Schweiz. Persönlich, authentisch und professionell. Jetzt anfragen.',
+		key: `${ project?.attributes.heading }` || 'Samira Haas',
+		title: `${ project?.attributes.heading } | Samira Haas` || 'Samira Haas',
+		description: project?.attributes.description || 'Fotografie und Gestaltung für Grossfirmen, KMU oder Private in der ganzen Schweiz. Persönlich, authentisch und professionell. Jetzt anfragen.',
 	};
 
 };
@@ -30,7 +29,7 @@ const Component = async ({ params }) => {
 	// RENDER
 	return (
 		<>
-			<Gallery heading={ project.attributes.heading } data={ project } />
+			<Gallery data={ project } />
 			<Cta />
 			<Jumper />
 			<Footer />

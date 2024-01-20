@@ -4,6 +4,7 @@
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
+import Markdown from 'components/01-atoms/markdown/markdown';
 import Picture from 'components/01-atoms/picture/picture';
 import Anchor from 'components/01-atoms/anchor/anchor';
 import { gsap } from 'gsap';
@@ -39,7 +40,7 @@ const AboutMe = ({ data }) => {
 		<Section className="about-me" ref={ aboutMeRef }>
 			<div className="about-me__content content">
 				<Heading className="content__heading animation--fade-in" level="h2">{ data?.attributes.heading }</Heading>
-				<Text className="content__text animation--fade-in">{ data?.attributes.text }</Text>
+				<Markdown className="content__text animation--fade-in">{ data?.attributes.text }</Markdown>
 				<Anchor className="content__anchor animation--fade-in" href={ data?.attributes.button.link || '/' }>{ data?.attributes.button.label }</Anchor>
 			</div>
 			<Picture className="about-me__image animation--fade-in" src={ data?.attributes.image.data?.attributes.url } alt="Image" />
