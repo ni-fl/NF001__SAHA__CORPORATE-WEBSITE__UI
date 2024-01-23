@@ -17,7 +17,6 @@ const Component = ({ className, items }) => {
 
 	// HANDLE LOAD
 	const handleLoad = () => {
-		console.log('loaded');
 		ScrollTrigger.refresh();
 	};
 
