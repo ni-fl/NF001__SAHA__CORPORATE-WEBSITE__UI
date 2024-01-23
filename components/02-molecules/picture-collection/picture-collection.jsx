@@ -5,6 +5,7 @@ import Heading from 'components/01-atoms/heading/heading';
 import Picture from 'components/01-atoms/picture/picture';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useEffect } from 'react';
 
 // COMPONENT
 const Component = ({ className, items }) => {
