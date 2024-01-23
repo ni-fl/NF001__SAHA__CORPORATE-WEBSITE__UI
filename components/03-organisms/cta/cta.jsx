@@ -23,7 +23,7 @@ const Component = () => {
 	// ANIMATE ELEMENTS
 	useEffect(() => {
 		const context = gsap.context(() => {
-			ctaTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: ctaRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
+			ctaTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: ctaRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: true } });
 			ctaTimelineRef.current.to('.cta .cta__link', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
 		}, ctaRef);
 		return () => { return context.revert(); };

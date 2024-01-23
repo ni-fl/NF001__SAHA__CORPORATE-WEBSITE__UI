@@ -23,7 +23,7 @@ const Footer = () => {
 	// ANIMATE ELEMENTS
 	useEffect(() => {
 		const context = gsap.context(() => {
-			footerTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: footerRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
+			footerTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: footerRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: true } });
 			footerTimelineRef.current.to('.footer .footer__logo', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0);
 			footerTimelineRef.current.to('.footer .content__title', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
 			footerTimelineRef.current.to('.footer .content__contact-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
