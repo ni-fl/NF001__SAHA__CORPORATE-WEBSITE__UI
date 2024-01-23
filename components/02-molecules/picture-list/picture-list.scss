@@ -14,14 +14,14 @@
 		
 		&:nth-child(4n + 1) {
 			margin-left: calc(100% / 24 * 0);
-			width: calc(100% / 24 * 17.5);
-			margin-right: calc(100% / 24 * 6.5);
+			width: calc(100% / 24 * 14);
+			margin-right: calc(100% / 24 * 10);
 		}
 							
 		&:nth-child(4n + 2) {
-			margin-left: calc(100% / 24 * 6.5);
-			width: calc(100% / 24 * 17.5);
-			margin-right: calc(100% / 24 * 0);
+			margin-left: calc(100% / 24 * 15);
+			width: calc(100% / 24 * 8);
+			margin-right: calc(100% / 24 * 1);
 		}
 									
 		&:nth-child(4n + 3) {
