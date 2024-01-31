@@ -4,22 +4,22 @@
 import Text from 'components/01-atoms/text/text';
 import Image from 'next/image';
 import Heading from 'components/01-atoms/heading/heading';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 // COMPONENT
 const Component = () => {
+	
+	// CREATE REFS
+	const footerRef = useRef();
+	const footerTimelineRef = useRef();
 
 	// REGISTER PLUGIN
 	useLayoutEffect(() => {
 		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
-	
-	// CREATE REFS
-	const footerRef = useRef();
-	const footerTimelineRef = useRef();
 	
 	// ANIMATE ELEMENTS
 	useGSAP(() => {
@@ -32,7 +32,7 @@ const Component = () => {
 		.to('.footer .content__social-media-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25)
 		.to('.footer .content__legal-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25)
 		.to('.footer .content__copyright', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
-
+		
 		// CREATE SCROLL-TRIGGER
 		ScrollTrigger.create({ 
 			trigger: footerRef.current, 
@@ -40,9 +40,18 @@ const Component = () => {
 			end: 'bottom top+=80px', 
 			markers: false,
 			animation: footerTimelineRef.current,
-		 });
-
+		});
+		
 	}, { scope: footerRef });
+	
+	// FALLBACK FOR ANIMATION IN FIREFOX
+	useEffect(() => {
+		setTimeout(() => {
+			const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+			const hasPlayed = footerTimelineRef.current.progress();
+			if (isFirefox && !hasPlayed) footerTimelineRef.current.play();
+		}, 5000)
+	}, []);
 
 	// GET CURRENT YEAR
 	const getCurrentYear = () => {

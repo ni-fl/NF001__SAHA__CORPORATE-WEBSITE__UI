@@ -10,7 +10,7 @@ import { useRef, useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const profileRef = useRef();

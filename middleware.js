@@ -45,7 +45,7 @@ export const middleware = async (request) => {
 		});
 		const { status } = await response.json();
 
-		// // IF TOKEN IS VALID LET USER PASS
+		// IF TOKEN IS VALID LET USER PASS
 		if (status === 200) {
 			return next();
 		};

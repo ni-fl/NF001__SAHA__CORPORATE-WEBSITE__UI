@@ -4,20 +4,20 @@
 import Section from 'components/04-layouts/section/section';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 
 // COMPONENT
 const Component = () => {
 
+	// CREATE REFS
+	const jumperRef = useRef();
+	const jumperTimelineRef = useRef();
+
 	// REGISTER PLUGIN
 	useLayoutEffect(() => {
 		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
-
-	// CREATE REFS
-	const jumperRef = useRef();
-	const jumperTimelineRef = useRef();
 
 	// ANIMATE ELEMENTS
 	useGSAP(() => {
@@ -36,6 +36,15 @@ const Component = () => {
 			});
 
 	}, { scope: jumperRef });
+
+	// FALLBACK FOR ANIMATION IN FIREFOX
+	useEffect(() => {
+		setTimeout(() => {
+			const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+			const hasPlayed = jumperTimelineRef.current.progress();
+			if (isFirefox && !hasPlayed) jumperTimelineRef.current.play();
+		}, 5000)
+	}, []);
 
 	// RENDER
 	return (

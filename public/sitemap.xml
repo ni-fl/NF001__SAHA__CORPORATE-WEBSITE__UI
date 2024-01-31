@@ -11,12 +11,18 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://samirahaas.ch/showcase/corporate</loc>
+    <loc>https://samirahaas.ch/showcase/business</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://samirahaas.ch/showcase/architecture</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+  <url>
+    <loc>https://samirahaas.ch/showcase/free-work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
