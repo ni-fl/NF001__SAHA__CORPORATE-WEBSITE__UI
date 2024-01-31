@@ -2,7 +2,7 @@
 import ReactMarkdown from 'react-markdown';
 
 // COMPONENT
-const Component = ({ className, children, modifier, size }) => {
+const Component = ({ className = '', children = null, modifier = null, size = null }) => {
 
 	// RENDER
 	return (

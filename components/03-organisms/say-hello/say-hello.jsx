@@ -7,31 +7,41 @@ import Text from 'components/01-atoms/text/text';
 import Markdown from 'components/01-atoms/markdown/markdown';
 import Picture from 'components/01-atoms/picture/picture';
 import { gsap } from 'gsap';
-import { useRef, useEffect } from 'react';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useRef, useLayoutEffect } from 'react';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const sayHelloRef = useRef();
 	const sayHelloTimelineRef = useRef();
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			sayHelloTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: sayHelloRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
-			sayHelloTimelineRef.current.to('.say-hello .content__heading .heading__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0);
-			sayHelloTimelineRef.current.to('.say-hello .say-hello__image', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
-			sayHelloTimelineRef.current.to('.say-hello .content__text', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
-		}, sayHelloRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		sayHelloTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true });
+		sayHelloTimelineRef.current.to('.say-hello .content__heading .heading__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0);
+		sayHelloTimelineRef.current.to('.say-hello .say-hello__image', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
+		sayHelloTimelineRef.current.to('.say-hello .content__text', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
+
+		// CREATE SCROLL-TRIGGER
+		ScrollTrigger.create({ 
+			trigger: sayHelloRef.current, 
+			start: 'top bottom-=80px', 
+			end: 'bottom top+=80px', 
+			markers: false, 
+			animation: sayHelloTimelineRef.current
+		}); 
+
+	}, { scope: sayHelloRef });
 
 	// RENDER
 	return (

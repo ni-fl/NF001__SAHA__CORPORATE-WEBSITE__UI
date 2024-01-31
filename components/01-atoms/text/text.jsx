@@ -1,5 +1,5 @@
 // COMPONENT
-const Component = ({ className, children, modifier, size }) => {
+const Component = ({ className = '', children = '', modifier = '', size = '' }) => {
 
 	// RENDER
 	return (

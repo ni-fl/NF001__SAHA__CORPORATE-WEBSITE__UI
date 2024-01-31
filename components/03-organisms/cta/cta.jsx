@@ -3,10 +3,10 @@
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
-import Link from 'next/link';
+import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useEffect } from 'react';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
 const Component = () => {
@@ -16,18 +16,27 @@ const Component = () => {
 	const ctaTimelineRef = useRef();
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			ctaTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: ctaRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
-			ctaTimelineRef.current.to('.cta .cta__link', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
-		}, ctaRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		ctaTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+			.to('.cta .cta__link', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
+
+		// CREATE SCROLL-TRIGGER
+			ScrollTrigger.create({ 
+				trigger: ctaRef.current, 
+				start: 'top bottom-=80px', 
+				end: 'bottom top+=80px', 
+				markers: false,
+				animation: ctaTimelineRef.current,
+			});
+
+	}, { scope: ctaRef });
 
 	// RENDER
 	return (

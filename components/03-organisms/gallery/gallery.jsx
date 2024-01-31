@@ -7,35 +7,45 @@ import Impressions from 'components/02-molecules/impressions/impressions';
 import ImpressionsNavigation from 'components/02-molecules/impressions-navigation/impressions-navigation';
 import References from 'components/02-molecules/references/references';
 import Markdown from 'components/01-atoms/markdown/markdown';
+import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useEffect } from 'react';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENTS
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const galleryRef = useRef(null);
 	const galleryTimelineRef = useRef(null);
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			galleryTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: galleryRef.current, start: 'top bottom-=160px', end: 'bottom top+=160px', markers: false } });
-			galleryTimelineRef.current.to('.gallery .gallery__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
-			galleryTimelineRef.current.to('.gallery .gallery__description', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
-			galleryTimelineRef.current.to('.gallery .gallery__references', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
-			galleryTimelineRef.current.to('.gallery .gallery__impressions', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
-			galleryTimelineRef.current.to('.gallery .impressions__item .item__image', { autoAlpha: 1, duration: 1, top: 0, stagger: 0, ease: 'power4.out' }, 1);
-			galleryTimelineRef.current.to('.gallery .gallery__navigation', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 2.5);
-		}, galleryRef);
-		return () => { context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		 // CREATE TIMELINE
+			galleryTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+				.to('.gallery .gallery__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25)
+				.to('.gallery .gallery__description', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
+				.to('.gallery .gallery__references', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
+				.to('.gallery .gallery__impressions', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
+				.to('.gallery .impressions__item .item__image', { autoAlpha: 1, duration: 1, top: 0, stagger: 0, ease: 'power4.out' }, 1)
+				.to('.gallery .gallery__navigation', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 2.5);
+
+				// CREATE SCROLL-TRIGGER
+				ScrollTrigger.create({ 
+					trigger: galleryRef.current, 
+					start: 'top bottom-=80px', 
+					end: 'bottom top+=80px',
+					markers: false,
+					animation: galleryTimelineRef.current,
+				});
+
+	}, { scope: galleryRef });
 
 	// RENDER
 	return (

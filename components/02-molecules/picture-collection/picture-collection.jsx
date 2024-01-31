@@ -8,7 +8,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useEffect } from 'react';
 
 // COMPONENT
-const Component = ({ className, items }) => {
+const Component = ({ className = '', items = '' }) => {
 
 	// REGISTER PLUGIN
 	useEffect(() => {

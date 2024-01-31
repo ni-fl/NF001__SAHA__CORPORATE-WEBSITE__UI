@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 // COMPONENT
-const Component = ({ className, src, alt, quality, priority, width, height, onLoad }) => {
+const Component = ({ className = '', src = '', alt = '', quality = '', priority = '', width = '', height = '', onLoad = '' }) => {
 
 	// RENDER
 	return (

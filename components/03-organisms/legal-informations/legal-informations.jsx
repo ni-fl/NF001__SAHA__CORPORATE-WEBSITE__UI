@@ -6,29 +6,39 @@ import Heading from 'components/01-atoms/heading/heading';
 import ReactMarkdown from 'react-markdown';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const legalInformationsRef = useRef();
 	const legalInformationsTimelineRef = useRef();
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			legalInformationsTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: legalInformationsRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
-			legalInformationsTimelineRef.current.to('.legal-informations .legal-informations__heading .heading__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0);
-			legalInformationsTimelineRef.current.to('.legal-informations .paragraphs__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25, ease: 'power4.out' }, 0);
-		}, legalInformationsRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		legalInformationsTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+			.to('.legal-informations .legal-informations__heading .heading__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0)
+			.to('.legal-informations .paragraphs__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25, ease: 'power4.out' }, 0);
+
+		// CREATE SCROLL-TRIGGER
+		ScrollTrigger.create({ 
+			trigger: legalInformationsRef.current,
+			start: 'top bottom-=80px', 
+			end: 'bottom top+=80px', 
+			markers: false, 
+			animation: legalInformationsTimelineRef.current,
+		}); 
+
+	}, { scope: legalInformationsRef });
 
 	// RENDER
 	return (

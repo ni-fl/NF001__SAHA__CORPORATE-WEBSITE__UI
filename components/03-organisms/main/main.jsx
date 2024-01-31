@@ -1,5 +1,5 @@
 // COMPONENT
-const Main = ({ content }) => {
+const Main = ({ content = null }) => {
 
 	// RENDER
 	return (

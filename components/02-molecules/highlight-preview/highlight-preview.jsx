@@ -1,16 +1,21 @@
 // IMPORTS
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
+import { useLayoutEffect, useRef, useState } from 'react';
 import Heading from 'components/01-atoms/heading/heading';
 import Picture from 'components/01-atoms/picture/picture';
-import Link from 'next/link';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ className, items }) => {
+const Component = ({ className = '', items = [] }) => {
+
+	// REGISTER PLUGIN
+	useLayoutEffect(() => {
+		gsap.registerPlugin(useGSAP);
+	}, []);
 
 	// CREATE REFS
-	const timeline = useRef();
-	const previewRef = useRef();
+	const highlightPreviewTimeline = useRef();
+	const highlightPreviewRef = useRef();
 
 	// SETUP STATE
 	const [counter, setCounter] = useState(0);
@@ -23,35 +28,32 @@ const Component = ({ className, items }) => {
 	};
 
 	// SETUP ANIMATION
-	useEffect(() => {
-		const context = gsap.context(() => {
+	useGSAP(() => {
 			if (!items || items.length === 0) return;
 			const status = gsap.utils.toArray('.progress .progress__status');
 			const images = gsap.utils.toArray('.preview .preview__image');
 			const boxes = gsap.utils.toArray('.projects .box');
-			timeline.current = gsap.timeline({ onComplete: updateCounter });
-			timeline.current.to(status, { right: '100%', left: '0%', duration: 0, ease: 'power4.out' }, 0);
-			timeline.current.to(images, { opacity: 0, duration: 1, ease: 'power4.out' }, 0);
-			timeline.current.to(boxes, { zIndex: 0, duration: 0, ease: 'power4.out' }, 0);
-			timeline.current.to(images, { zIndex: 0, duration: 0, ease: 'power4.out' }, 0);
-			timeline.current.to(boxes, { opacity: 0, duration: 1, ease: 'power4.out' }, 0);
-			timeline.current.to(boxes[counter], { zIndex: 5, duration: 0, ease: 'power4.out' }, 0);
-			timeline.current.to(images[counter], { zIndex: 5, duration: 0, ease: 'power4.out' }, 0);
-			timeline.current.to(boxes[counter], { opacity: 1, duration: 1, ease: 'power4.out' }, 0.5);
-			timeline.current.to(images[counter], { opacity: 1, duration: 1, ease: 'power4.out' }, 0.5);
-			timeline.current.to(status, { opacity: 1, duration: 0, ease: 'power4.out ' }, 0.5);
-			timeline.current.to(status, { right: '0%', duration: 6, ease: 'power1.out' }, 0.5);
-			timeline.current.to(status, { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
-			timeline.current.to(images[counter], { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
-			timeline.current.to(images[counter], { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
-			timeline.current.to(boxes[counter], { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
-		}, previewRef);
-		return () => { return context.revert(); };
-	}, [counter]);
+			highlightPreviewTimeline.current = gsap.timeline({ onComplete: updateCounter });
+			highlightPreviewTimeline.current.to(status, { right: '100%', left: '0%', duration: 0, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(images, { opacity: 0, duration: 1, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(boxes, { zIndex: 0, duration: 0, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(images, { zIndex: 0, duration: 0, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(boxes, { opacity: 0, duration: 1, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(boxes[counter], { zIndex: 5, duration: 0, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(images[counter], { zIndex: 5, duration: 0, ease: 'power4.out' }, 0);
+			highlightPreviewTimeline.current.to(boxes[counter], { opacity: 1, duration: 1, ease: 'power4.out' }, 0.5);
+			highlightPreviewTimeline.current.to(images[counter], { opacity: 1, duration: 1, ease: 'power4.out' }, 0.5);
+			highlightPreviewTimeline.current.to(status, { opacity: 1, duration: 0, ease: 'power4.out ' }, 0.5);
+			highlightPreviewTimeline.current.to(status, { right: '0%', duration: 6, ease: 'power1.out' }, 0.5);
+			highlightPreviewTimeline.current.to(status, { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
+			highlightPreviewTimeline.current.to(images[counter], { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
+			highlightPreviewTimeline.current.to(images[counter], { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
+			highlightPreviewTimeline.current.to(boxes[counter], { opacity: 0, duration: 1, ease: 'power4.out' }, 8);
+	}, { scope: highlightPreviewRef, dependencies: [ counter ] });
 
 	// RENDER
 	return (
-		<div className={ `${ className } highlight-preview` } ref={ previewRef }>
+		<div className={ `${ className } highlight-preview` } ref={ highlightPreviewRef }>
 			<div className="highlight-preview__preview preview">
 				{ items?.map((item) => {
 					return (

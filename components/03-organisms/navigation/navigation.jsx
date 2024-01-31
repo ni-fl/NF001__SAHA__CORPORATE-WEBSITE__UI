@@ -3,8 +3,9 @@ import Hamburger from 'components/01-atoms/hamburger/hamburger';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
 const Component = () => {
@@ -39,8 +40,7 @@ const Component = () => {
 	// HANDLE LINK KLICK
 	const handleLinkClick = (event, targetPath) => {
 		event.preventDefault();
-		const currentPath = router.pathname;
-		if (currentPath === targetPath) {
+		if (router.pathname === targetPath) {
 			closeMenu();
 		} else {
 			router.push(targetPath);
@@ -48,24 +48,29 @@ const Component = () => {
 		};
 	};
 
+	// REGISTER PLUGIN
+	useLayoutEffect(() => {
+		gsap.registerPlugin(useGSAP);
+	});
+
 	// ANIMATE HAMBURGER
-	useEffect(() => {
-		const context = gsap.context(() => {
-			gsap.to(['.navigation .bar__logo', '.navigation .bar__hamburger'], { autoAlpha: 1, duration: 2 });
-		}, navigationRef.current);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TRANSITION 
+			gsap.to(['.navigation .bar__logo', '.navigation .bar__hamburger'], { autoAlpha: 1, duration: 1 });
+
+	}, { scope: navigationRef });
 
 	// ANIMATE MENU
-	useEffect(() => {
-		const context = gsap.context(() => {
-			menuTimelineRef.current = gsap.timeline({ paused: true });
-			menuTimelineRef.current.to('.navigation .navigation__menu', { top: '0lvh', duration: 1, ease: 'power4.inOut' }, 0);
-			menuTimelineRef.current.to('.navigation .main-links__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.inOut', stagger: 0.05 }, 0.5);
-			menuTimelineRef.current.to('.navigation .social-links__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.inOut' }, 1);
-		}, navigationRef.current);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		menuTimelineRef.current = gsap.timeline({ paused: true })
+			.to('.navigation .navigation__menu', { top: '0lvh', duration: 1, ease: 'power4.inOut' }, 0)
+			.to('.navigation .main-links__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.inOut', stagger: 0.05 }, 0.5)
+			.to('.navigation .social-links__item', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.inOut' }, 1);
+
+	}, { scope: navigationRef });
 
 	// RENDER
 	return (

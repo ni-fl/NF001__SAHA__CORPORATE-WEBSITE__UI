@@ -3,37 +3,46 @@
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
-import Text from 'components/01-atoms/text/text';
 import Markdown from 'components/01-atoms/markdown/markdown';
 import Picture from 'components/01-atoms/picture/picture';
 import Anchor from 'components/01-atoms/anchor/anchor';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useEffect } from 'react';
-
+import { useGSAP } from '@gsap/react';
+		
 // COMPONENT
-const AboutMe = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const aboutMeRef = useRef();
 	const aboutMeTimelineRef = useRef();
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			aboutMeTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: aboutMeRef.current, start: 'top bottom-=320px', end: 'bottom top+=320px', markers: false } });
-			aboutMeTimelineRef.current.to('.about-me .about-me__image', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0);
-			aboutMeTimelineRef.current.to('.about-me .content__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25);
-			aboutMeTimelineRef.current.to('.about-me .content__text', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
-			aboutMeTimelineRef.current.to('.about-me .content__anchor', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.75);
-		}, aboutMeRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		aboutMeTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+		.to('.about-me .about-me__image', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0)
+		.to('.about-me .content__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.25)
+		.to('.about-me .content__text', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
+		.to('.about-me .content__anchor', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.75)
+
+		// CREATE SCROLL-TRIGGER
+		ScrollTrigger.create({ 
+			trigger: aboutMeRef.current, 
+			start: 'top bottom-=80px', 
+			end: 'bottom top+=80px', 
+			markers: false, 
+			animation: aboutMeTimelineRef.current,
+		});
+		
+	}, { scope: aboutMeRef });
 
 	// RENDER
 	return (
@@ -50,4 +59,4 @@ const AboutMe = ({ data }) => {
 };
 
 // EXPORTS
-export default AboutMe;
+export default Component;

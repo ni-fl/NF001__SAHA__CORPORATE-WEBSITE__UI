@@ -1,5 +1,5 @@
 // COMPONENT
-const Component = ({ className, children, onClick }) => {
+const Component = ({ className = '', children = null, onClick = null }) => {
 
 	// RENDER
 	return (

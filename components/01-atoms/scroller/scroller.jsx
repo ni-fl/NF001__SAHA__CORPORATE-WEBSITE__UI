@@ -1,29 +1,29 @@
 // IMPORTS
-import { gsap } from 'gsap';
-import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { useRef, useEffect } from 'react';
+import { useGSAP } from '@gsap/react';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 
 // COMPONENT
-const Component = ({ className }) => {
+const Component = ({ className = '' }) => {
+
+	// REGISTER PLUGIN
+	useEffect(() => {
+		gsap.registerPlugin(ScrollToPlugin, useGSAP);
+	}, [])
 
 	// SETUP REFS
 	const scrollerRef = useRef();
 
 	// HANDLE CLICK
 	const handleClick = () => {
-		if (typeof window !== 'undefined') {
-			const viewportHeight = window.innerHeight;
-			window.scrollTo({ top: viewportHeight, behavior: 'smooth' });
-		};
+		gsap.to(window, { duration: 1, ease: 'power4.inOut', scrollTo: { y: scrollerRef.current  }})
 	};
 
-	// SCROLL DOWN
-	useEffect(() => {
-		if (!scrollerRef) return;
-		const context = gsap.context(() => {
+	// ANIMATE ICON
+	useGSAP(() => {
 			gsap.to('.scroller__icon', { top: 8, repeat: -1, duration: 1, yoyo: true, ease: 'sine.out' });
-		}, scrollerRef);
-		return () => { return context.revert(); };
-	}, []);
+	}, { scope: scrollerRef });
 
 	// RENDER
 	return (

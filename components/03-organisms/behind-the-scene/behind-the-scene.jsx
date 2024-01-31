@@ -2,32 +2,41 @@
 
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
-import Picture from 'components/01-atoms/picture/picture';
 import PictureList from 'components/02-molecules/picture-list/picture-list';
+import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useEffect } from 'react';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const behindTheSceneRef = useRef();
 	const behindTheSceneTimelineRef = useRef();
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			behindTheSceneTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: behindTheSceneRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px' } });
-			behindTheSceneTimelineRef.current.to('.behind-the-scene .picture-list__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25 }, 0.5);
-		}, behindTheSceneRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		behindTheSceneTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+			.to('.behind-the-scene .picture-list__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25 }, 0.5);
+
+		// CREATE SCROLL-TRIGGER
+		ScrollTrigger.create({ 
+			trigger: behindTheSceneRef.current, 
+			start: 'top bottom-=80px', 
+			end: 'bottom top+=80px', 
+			markers: false,
+			animation: behindTheSceneTimelineRef.current,
+		});
+
+	}, { scope: behindTheSceneRef } );
 
 	// GET ALL IMAGES
 	const items = data && data.attributes.images.data.map((item) => {

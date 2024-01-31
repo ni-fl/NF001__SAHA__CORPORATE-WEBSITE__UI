@@ -1,7 +1,6 @@
 .scroller {
 	width: 100%;
 	margin: 0 auto;
-	cursor: pointer;
 
 	&__icon {
 		width: 16px;
@@ -9,6 +8,7 @@
 		margin: 0 auto;
 		display: block;
 		position: relative;
+		cursor: pointer;
 	}
 
 }

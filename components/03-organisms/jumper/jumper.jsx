@@ -2,17 +2,17 @@
 
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
-import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
 const Component = () => {
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// CREATE REFS
@@ -20,13 +20,22 @@ const Component = () => {
 	const jumperTimelineRef = useRef();
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			jumperTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: jumperRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
-			jumperTimelineRef.current.to('.jumper .jumper__link', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' });
-		}, jumperRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		jumperTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+			.to('.jumper .jumper__link', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' });
+
+			// CREATE SCROLL-TRIGGER
+			ScrollTrigger.create({ 
+				trigger: jumperRef.current, 
+				start: 'top bottom-=80px', 
+				end: 'bottom top+=80px', 
+				markers: false, 
+				animation: jumperTimelineRef.current,
+			});
+
+	}, { scope: jumperRef });
 
 	// RENDER
 	return (

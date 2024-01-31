@@ -1,38 +1,48 @@
 'use client';
 
 // IMPORTS
-import Link from 'next/link';
 import Text from 'components/01-atoms/text/text';
 import Image from 'next/image';
 import Heading from 'components/01-atoms/heading/heading';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
-const Footer = () => {
+// COMPONENT
+const Component = () => {
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
-
+	
 	// CREATE REFS
 	const footerRef = useRef();
 	const footerTimelineRef = useRef();
-
+	
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			footerTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: footerRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
-			footerTimelineRef.current.to('.footer .footer__logo', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0);
-			footerTimelineRef.current.to('.footer .content__title', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
-			footerTimelineRef.current.to('.footer .content__contact-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
-			footerTimelineRef.current.to('.footer .content__social-media-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
-			footerTimelineRef.current.to('.footer .content__legal-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
-			footerTimelineRef.current.to('.footer .content__copyright', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
-		}, footerRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+		
+		// CREATE TIMELINE
+		footerTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+		.to('.footer .footer__logo', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0)
+		.to('.footer .content__title', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25)
+		.to('.footer .content__contact-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25)
+		.to('.footer .content__social-media-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25)
+		.to('.footer .content__legal-links', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25)
+		.to('.footer .content__copyright', { autoAlpha: 1, duration: 1, ease: 'power4.out', top: 0 }, 0.25);
+
+		// CREATE SCROLL-TRIGGER
+		ScrollTrigger.create({ 
+			trigger: footerRef.current, 
+			start: 'top bottom-=80px', 
+			end: 'bottom top+=80px', 
+			markers: false,
+			animation: footerTimelineRef.current,
+		 });
+
+	}, { scope: footerRef });
 
 	// GET CURRENT YEAR
 	const getCurrentYear = () => {
@@ -66,4 +76,4 @@ const Footer = () => {
 };
 
 // EXPORTS
-export default Footer;
+export default Component;

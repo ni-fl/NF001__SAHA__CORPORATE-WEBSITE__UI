@@ -2,7 +2,7 @@
 import { forwardRef } from 'react';
 
 // COMPONENT
-const Section = forwardRef(({ className, children }, ref) => {
+const Section = forwardRef(({ className = '', children = null }, ref) => {
 
 	// RENDER
 	return (

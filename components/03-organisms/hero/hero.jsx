@@ -5,26 +5,32 @@ import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
 import Section from 'components/04-layouts/section/section';
 import Scroller from 'components/01-atoms/scroller/scroller';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
+
+	// REGISTER PLUGIN
+	useLayoutEffect(() => {
+		gsap.registerPlugin(useGSAP);
+	}, []);
 
 	// CREATE REFS
 	const heroRef = useRef();
 	const heroTimelineRef = useRef();
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			heroTimelineRef.current = gsap.timeline();
-			heroTimelineRef.current.to('.hero__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5);
-			heroTimelineRef.current.to('.hero__text', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.75);
-			heroTimelineRef.current.to('.hero__scroller', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 1);
-		}, heroRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		heroTimelineRef.current = gsap.timeline({ delay: 0.25, paused: false })
+			.to('.hero__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
+			.to('.hero__text', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.75)
+			.to('.hero__scroller', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 1);
+
+	}, { scope: heroRef });
 
 	// RENDER
 	return (

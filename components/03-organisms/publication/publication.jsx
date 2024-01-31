@@ -4,32 +4,41 @@
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Text from 'components/01-atoms/text/text';
-import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 
 // COMPONENT
-const Component = ({ data }) => {
+const Component = ({ data = null }) => {
 
 	// CREATE REFS
 	const publicationRef = useRef();
 	const publicationTimelineRef = useRef();
 
 	// REGISTER PLUGIN
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, useGSAP);
 	}, []);
 
 	// ANIMATE ELEMENTS
-	useEffect(() => {
-		const context = gsap.context(() => {
-			publicationTimelineRef.current = gsap.timeline({ delay: 0.25, scrollTrigger: { trigger: publicationRef.current, start: 'top bottom-=80px', end: 'bottom top+=80px', markers: false } });
-			publicationTimelineRef.current.to('.publication .publication__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0);
-			publicationTimelineRef.current.to('.publication .contributors__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25, ease: 'power4.out' }, 0.25);
-		}, publicationRef);
-		return () => { return context.revert(); };
-	}, []);
+	useGSAP(() => {
+
+		// CREATE TIMELINE
+		publicationTimelineRef.current = gsap.timeline({ delay: 0.25, paused: true })
+			.to('.publication .publication__heading', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0)
+			.to('.publication .contributors__item', { autoAlpha: 1, duration: 1, top: 0, stagger: 0.25, ease: 'power4.out' }, 0.25);
+
+		// CREATE SCROLL-TRIGGER
+		ScrollTrigger.create({ 
+			trigger: publicationRef.current, 
+			start: 'top bottom-=80px', 
+			end: 'bottom top+=80px', 
+			markers: true, 
+			animation: publicationTimelineRef.current,
+		});
+
+	}, { scope: publicationRef });
 
 	// RENDER
 	return (
