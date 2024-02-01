@@ -4,6 +4,7 @@
 import Heading from 'components/01-atoms/heading/heading';
 import Section from 'components/04-layouts/section/section';
 import Text from 'components/01-atoms/text/text';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useLayoutEffect } from 'react';
@@ -64,9 +65,9 @@ const Component = ({ data = null }) => {
 					{ data?.attributes.contact.address.map((item) => {
 						return (
 							item.link ? (
-								<a className="address__link" href={ item.link } key={ item.id }>
+								<Link className="address__link" href={ item.link } key={ item.id }>
 									<Text className="address__item text--medium">{ item.text }</Text>
-								</a>
+								</Link>
 							) : <Text className="address__item text--medium" key={ item.id }>{ item.text }</Text>
 						);
 					})}

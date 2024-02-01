@@ -16,9 +16,9 @@ const Component = () => {
 				<Heading className="content__heading" level="h1">OOPS!</Heading>
 				<Text className="content__text text--large">Die Seite konnte leider nicht gefunden werden.</Text>
 			</div>
-			<a className="error__link link" href="/">
+			<Link className="error__link link" href="/">
 				<Text className="link__text">Zurück zur Startseite</Text>
-			</a>
+			</Link>
 		</Section>
 	);
 

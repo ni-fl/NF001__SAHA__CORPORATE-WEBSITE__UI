@@ -2,6 +2,7 @@
 
 // IMPORTS
 import Section from 'components/04-layouts/section/section';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useRef, useEffect, useLayoutEffect } from 'react';
@@ -49,12 +50,12 @@ const Component = () => {
 	// RENDER
 	return (
 		<Section className="jumper" ref={ jumperRef }>
-			<a className="jumper__link animation--fade-in" href="/showcase/business">business</a>
-			<a className="jumper__link animation--fade-in" href="/showcase/architecture">Architektur</a>
-			<a className="jumper__link animation--fade-in" href="/showcase/weddings">Hochzeiten</a>
-			<a className="jumper__link animation--fade-in" href="/showcase/design">Gestaltungen</a>
-			<a className="jumper__link animation--fade-in" href="/showcase/free-work">Freie Arbeiten</a>
-			<a className="jumper__link animation--fade-in" href="/contact">Kontakt</a>
+			<Link className="jumper__link animation--fade-in" href="/showcase/business">business</Link>
+			<Link className="jumper__link animation--fade-in" href="/showcase/architecture">Architektur</Link>
+			<Link className="jumper__link animation--fade-in" href="/showcase/weddings">Hochzeiten</Link>
+			<Link className="jumper__link animation--fade-in" href="/showcase/design">Gestaltungen</Link>
+			<Link className="jumper__link animation--fade-in" href="/showcase/free-work">Freie Arbeiten</Link>
+			<Link className="jumper__link animation--fade-in" href="/contact">Kontakt</Link>
 		</Section>
 	);
 

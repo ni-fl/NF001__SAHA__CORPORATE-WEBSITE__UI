@@ -33,7 +33,7 @@ const Component = ({ data = null }) => {
 				.to('.gallery .gallery__description', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
 				.to('.gallery .gallery__references', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
 				.to('.gallery .gallery__impressions', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 0.5)
-				.to('.gallery .impressions__item .item__image', { autoAlpha: 1, duration: 1, top: 0, stagger: 0, ease: 'power4.out' }, 1)
+				.to('.gallery .impressions__item .item__image', { autoAlpha: 1, duration: 2, top: 0, stagger: 0.1, ease: 'power4.out' }, 1)
 				.to('.gallery .gallery__navigation', { autoAlpha: 1, duration: 1, top: 0, ease: 'power4.out' }, 2.5);
 
 				// CREATE SCROLL-TRIGGER

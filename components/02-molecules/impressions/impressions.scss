@@ -1,21 +1,34 @@
 .impressions {
 	
 	&__item, .item {
-		width: 100%;
-		height: 100%;
-		display: grid;	
-		grid-gap: 16px;
-		grid-auto-flow: column;
-		flex-direction: row;
-		grid-template-rows: auto;
-		grid-template-columns: repeat(auto-fill, 1fr);
-		margin-bottom: 16px;
 		
+		&__layout, .layout {
+			width: 100%;
+			height: 100%;
+			display: grid;	
+			grid-gap: 16px;
+			margin-bottom: 16px;
+
+			&--one-column {
+				grid-template-columns:  1fr;
+			}
+		
+			&--two-column {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			&--three-column {
+				grid-template-columns: 1fr 1fr 1fr;
+			}
+
+		}
+
 		&__image, .image {
 			width: 100%;
 			display: block;
 			height: auto;
 			object-fit: cover;
+			background-color: $beige-80;
 		}
 
 	}

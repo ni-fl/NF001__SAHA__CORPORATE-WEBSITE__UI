@@ -2,6 +2,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import Heading from 'components/01-atoms/heading/heading';
 import Picture from 'components/01-atoms/picture/picture';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -58,23 +59,23 @@ const Component = ({ className = '', items = [] }) => {
 			<div className="highlight-slider__preview preview">
 				{ items?.map((item) => {
 					return (
-						<a className="preview__image image" href={ `/project/${ item.id }` } key={ item.id }>
+						<Link className="preview__image image" href={ `/project/${ item.id }` } key={ item.id }>
 							<Picture className="image__source" src={ item.attributes.teaser.data?.attributes.url } alt="Image" priority />
-						</a>
+						</Link>
 					);
 				})}
 			</div>
 			<div className="highlight-slider__projects projects">
 				{ items?.map((item) => {
 					return (
-						<a className="projects__box box" key={ item.id } href={ `/project/${ item.id }` }>
+						<Link className="projects__box box" key={ item.id } href={ `/project/${ item.id }` }>
 							<div className="box__progress progress">
 								<div className="progress__background" />
 								<div className="progress__status" />
 							</div>
 							<Heading className="box__label" level="h3">{ item.attributes.category }</Heading>
 							<Heading className="box__title" level="h5">{ item.attributes.heading }</Heading>
-						</a>
+						</Link>
 					);
 				})}
 			</div>

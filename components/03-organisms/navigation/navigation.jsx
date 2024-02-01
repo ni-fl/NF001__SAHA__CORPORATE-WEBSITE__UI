@@ -80,9 +80,9 @@ const Component = () => {
 				<div className="navigation__background" />
 				<div className="navigation__bar bar">
 					<div className="bar__inner">
-						<a className="bar__logo-link" href="/">
+						<Link className="bar__logo-link" href="/">
 							<Image className="bar__logo" src="/logos/full.svg" alt="Samira Haas" width="140" height="40" priority />
-						</a>
+						</Link>
 						<Hamburger className="bar__hamburger" isOpen={ isOpen } onClick={ toggleMenu } />
 					</div>
 				</div>

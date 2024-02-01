@@ -4,6 +4,7 @@
 import Text from 'components/01-atoms/text/text';
 import Image from 'next/image';
 import Heading from 'components/01-atoms/heading/heading';
+import Link from 'next/link';
 import { useLayoutEffect, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -66,15 +67,15 @@ const Component = () => {
 				<div className="footer__content content">
 					<Heading className="content__title animation--fade-in" level="h3">Fotografie und Gestaltung</Heading>
 					<div className="content__contact-links contact-links animation--fade-in">
-						<a className="contact-links__item" href="mailto:mail@samirahaas.ch">mail@samirahaas.ch</a>
-						<a className="contact-links__item" href="tel:0797894050">079 789 40 50</a>
+						<Link className="contact-links__item" href="mailto:mail@samirahaas.ch">mail@samirahaas.ch</Link>
+						<Link className="contact-links__item" href="tel:0797894050">079 789 40 50</Link>
 					</div>
 					<div className="content__social-media-links social-media-links animation--fade-in">
-						<a className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank" rel="noreferrer">Instagram</a>
+						<Link className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank" rel="noreferrer">Instagram</Link>
 					</div>
 					<div className="content__legal-links legal-links animation--fade-in">
-						<a className="legal-links__item" href="/imprint">Impressum</a>
-						<a className="legal-links__item" href="/data-privacy">Datenschutz</a>
+						<Link className="legal-links__item" href="/imprint">Impressum</Link>
+						<Link className="legal-links__item" href="/data-privacy">Datenschutz</Link>
 					</div>
 					<Text className="content__copyright animation--fade-in">© { getCurrentYear() } Samira Haas</Text>
 				</div>
