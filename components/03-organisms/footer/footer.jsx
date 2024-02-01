@@ -5,7 +5,7 @@ import Text from 'components/01-atoms/text/text';
 import Image from 'next/image';
 import Heading from 'components/01-atoms/heading/heading';
 import Link from 'next/link';
-import { useLayoutEffect, useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -45,15 +45,6 @@ const Component = () => {
 		
 	}, { scope: footerRef });
 	
-	// FALLBACK FOR ANIMATION IN FIREFOX
-	useEffect(() => {
-		setTimeout(() => {
-			const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
-			const hasPlayed = footerTimelineRef.current.progress();
-			if (isFirefox && !hasPlayed) footerTimelineRef.current.play();
-		}, 5000)
-	}, []);
-
 	// GET CURRENT YEAR
 	const getCurrentYear = () => {
 		return new Date().getFullYear();

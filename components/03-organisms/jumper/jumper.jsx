@@ -5,7 +5,7 @@ import Section from 'components/04-layouts/section/section';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useRef, useEffect, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 
 // COMPONENT
@@ -37,15 +37,6 @@ const Component = () => {
 			});
 
 	}, { scope: jumperRef });
-
-	// FALLBACK FOR ANIMATION IN FIREFOX
-	useEffect(() => {
-		setTimeout(() => {
-			const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
-			const hasPlayed = jumperTimelineRef.current.progress();
-			if (isFirefox && !hasPlayed) jumperTimelineRef.current.play();
-		}, 5000)
-	}, []);
 
 	// RENDER
 	return (

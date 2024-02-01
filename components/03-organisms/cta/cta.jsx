@@ -4,7 +4,7 @@
 import Section from 'components/04-layouts/section/section';
 import Heading from 'components/01-atoms/heading/heading';
 import Link from 'next/link';
-import { useRef, useEffect, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -38,15 +38,6 @@ const Component = () => {
 			});
 
 	}, { scope: ctaRef });
-
-	// FALLBACK FOR ANIMATION IN FIREFOX
-	useEffect(() => {
-		setTimeout(() => {
-			const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
-			const hasPlayed = ctaTimelineRef.current.progress();
-			if (isFirefox && !hasPlayed) ctaTimelineRef.current.play();
-		}, 5000)
-	}, []);
 
 	// RENDER
 	return (
