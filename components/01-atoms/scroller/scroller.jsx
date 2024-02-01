@@ -17,7 +17,7 @@ const Component = ({ className = '' }) => {
 
 	// HANDLE CLICK
 	const handleClick = () => {
-		gsap.to(window, { duration: 1, ease: 'power4.inOut', scrollTo: { y: scrollerRef.current  }})
+		gsap.to(window, { duration: 1, ease: 'power4.inOut', scrollTo: { y: scrollerRef.current, offsetY: -80 }})
 	};
 
 	// ANIMATE ICON

@@ -35,7 +35,7 @@ const Component = ({ data = null }) => {
 			trigger: publicationRef.current, 
 			start: 'top bottom-=80px', 
 			end: 'bottom top+=80px', 
-			markers: true, 
+			markers: false, 
 			animation: publicationTimelineRef.current,
 		});
 
