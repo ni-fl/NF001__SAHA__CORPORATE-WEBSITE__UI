@@ -43,7 +43,6 @@ const Component = () => {
 		setTimeout(() => {
 			const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
 			const hasPlayed = ctaTimelineRef.current.progress();
-			console.log(hasPlayed);
 			if (isFirefox && !hasPlayed) ctaTimelineRef.current.play();
 		}, 5000)
 	}, []);

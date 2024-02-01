@@ -10,10 +10,10 @@ const Component = ({ className = '', items = '' }) => {
 	return (
 		<div className={ `${ className } impressions` }>
 			<div className="impressions__inner">
-				{ items.map((item) => (
+				{ items.map((item, index) => (
 					<div className="impressions__item item" key={ item.id }>
 						{ item.group.data?.map((image) => (
-							<Picture className="item__image animation--fade-in" src={ image.attributes.url } key={ `${ image.id } ` } quality={ 100 } alt="Image" width={ image.attributes.width } height={ image.attributes.height } priority={ true } />
+							<Picture className="item__image animation--fade-in" src={ image.attributes.url } key={ `${ image.id } ` } quality={ 100 } alt="Image" width={ image.attributes.width } height={ image.attributes.height } priority={ index < 5 ? true : false } />
 						))}
 					</div>
 				))}
