@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.5] - 07.02.2024
+
+Refactor: change font-size of h5 for small screens
+Refactor: change position for scrolling-target in hero
+Refactor: remove firefox fix for layout-shift
+Fix: add mobile style to impressions
+Refactor: change from anchor to links for navigation
+Refactor: make only first images priority in impressions component
+Setup: fallback for footer component animations
+Refactor: switch to new gsap-hook for animations
+Fix: hydration error with lp-plugin
+Setup: jumper for small viewports
+Refactor: add letter-spacing to paragraphs
+Refactor: change top-margin of titles on mobile
+Refactor: change format of picture-list
+Refactor: remove markers
+Refactor: show markers for footer components
+Fix: import use-effect in picture-collection
+Refactor: add refresher to scroll-trigger for gallery items
+Refactor: add priority flag to images in impressions
+Refactor: remove stagger for image-collection
+Refactor: change picture loading to lazy-load
+Fix: set viewport height to max size in navigation and hero
+Fix: remove unused effect in login-form
+Setup: picture-list component
+Refactor: change viewport-height to dynamic viewport-height in navigation
+Refactor: place footer components in pages instead of layout
+
 ## [v0.0.4] - 09.01.2024
 
 Fix: only show references in gallery if available
