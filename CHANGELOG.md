@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.6] - 08.02.2024
+
+Delete: placeholder images
+Setup: plausible provider
+
 ## [v0.0.5] - 07.02.2024
 
 Refactor: change font-size of h5 for small screens
