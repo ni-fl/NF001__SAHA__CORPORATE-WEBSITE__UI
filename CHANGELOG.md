@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.7] - 13.02.2024
+
+Refactor: increase spacing for headings on small screens
+
 ## [v0.0.6] - 08.02.2024
 
 Delete: placeholder images
