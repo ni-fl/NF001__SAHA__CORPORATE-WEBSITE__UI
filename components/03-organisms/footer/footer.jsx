@@ -62,6 +62,7 @@ const Component = () => {
 						<Link className="contact-links__item" href="tel:0797894050">079 789 40 50</Link>
 					</div>
 					<div className="content__social-media-links social-media-links animation--fade-in">
+						<Link className="social-media-links__item" href="https://linkedin.com/in/samira-haas-0b9b21173/" target="_blank" rel="noreferrer">LinkedIn</Link>
 						<Link className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank" rel="noreferrer">Instagram</Link>
 					</div>
 					<div className="content__legal-links legal-links animation--fade-in">
