@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.8] - 25.02.2024
+Setup: add social-media link to footer
+Refactor: change labels for project navigation
+
 ## [v0.0.7] - 13.02.2024
 
 Refactor: increase spacing for headings on small screens
