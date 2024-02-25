@@ -10,10 +10,10 @@ const Component = ({ className = '', next = null, previous = null }) => {
 		<nav className={ `${ className } impressions-navigation` }>
 			<Link className="impressions-navigation__item item item--previous" href={ `/project/${ previous}` }>
 				<img className="item__icon" src="/icons/chevron-left.svg" alt="Arrow" />
-				<Text className="item__label">zurück</Text>
+				<Text className="item__label">vorheriges Projekt</Text>
 			</Link>
 			<Link className="impressions-navigation__item item item--next" href={ `/project/${ next }` }>
-				<Text className="item__label">weiter</Text>
+				<Text className="item__label">nächstes Projekt</Text>
 				<img className="item__icon" src="/icons/chevron-right.svg" alt="Arrow" />
 			</Link>
 		</nav>

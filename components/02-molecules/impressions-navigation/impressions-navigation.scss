@@ -57,4 +57,20 @@
 
 	}
 
+	@media (max-width: 415px) {
+
+		&__item, .item {
+	
+			&__icon {
+				display: none;
+			}	
+
+		}
+
+	}
+
+	@media (max-width: 300px) {
+		display: none;
+	}
+
 }
