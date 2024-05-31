@@ -63,7 +63,7 @@ const Component = () => {
 					</div>
 					<div className="content__social-media-links social-media-links animation--fade-in">
 						<Link className="social-media-links__item" href="https://linkedin.com/in/samira-haas-0b9b21173/" target="_blank" rel="noreferrer">LinkedIn</Link>
-						<Link className="social-media-links__item" href="https://www.instagram.com/samirahaas_/" target="_blank" rel="noreferrer">Instagram</Link>
+						<Link className="social-media-links__item" href="https://www.instagram.com/samirahaas.ch/" target="_blank" rel="noreferrer">Instagram</Link>
 					</div>
 					<div className="content__legal-links legal-links animation--fade-in">
 						<Link className="legal-links__item" href="/imprint">Impressum</Link>
