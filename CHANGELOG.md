@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.0.9] - 31.05.2024
+Refactor: change url of instagram-link
+
 ## [v0.0.8] - 25.02.2024
 Setup: add social-media link to footer
 Refactor: change labels for project navigation
